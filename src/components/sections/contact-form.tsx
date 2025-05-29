@@ -1,20 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { sendContactEmail } from "@/app/actions/contact";
+import SubmitButton from "../shared/submit-button";
 
 const ContactForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  async function handleSubmit(formData: FormData) {
-    setIsLoading(true);
-
+  const handleSubmit = async (formData: FormData) => {
     try {
       const result = await sendContactEmail(formData);
 
@@ -31,10 +25,8 @@ const ContactForm = () => {
     } catch (error) {
       toast.error("Failed to send message. Please try again.");
       console.error("Error sending message:", error);
-    } finally {
-      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <section className="container mx-auto px-4 py-16 md:px-6 md:py-24">
@@ -100,19 +92,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <Button type="submit" disabled={isLoading} className="w-full sm:w-auto">
-          {isLoading ? (
-            <>
-              <Loader2 className="animate-spin" />
-              Sending...
-            </>
-          ) : (
-            <>
-              <Send />
-              Send Message
-            </>
-          )}
-        </Button>
+        <SubmitButton />
       </motion.form>
     </section>
   );
