@@ -14,7 +14,7 @@ const Skills = () => {
         transition={{ duration: 0.6 }}
         className="mb-12 text-center"
       >
-        <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+        <h2 className="from-foreground via-primary to-foreground/70 pb-6 bg-gradient-to-r bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
           Technical Skills
         </h2>
         <p className="text-secondary-foreground mx-auto max-w-2xl text-base leading-relaxed md:text-lg">

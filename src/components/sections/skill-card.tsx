@@ -27,10 +27,10 @@ const SkillCard = ({ title, icon, skills, index }: SkillCardProps) => {
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px", amount: 0.6 }}
-      transition={{ duration: 0.3, delay: index * 0.3 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.2, delay: index * 0.2, ease: "easeIn" }}
       className="group bg-card hover:border-primary/50 relative overflow-hidden rounded-lg border p-6 transition-all duration-300 hover:shadow-lg"
       onMouseMove={handleMouseMove}
     >
@@ -57,10 +57,10 @@ const SkillCard = ({ title, icon, skills, index }: SkillCardProps) => {
               key={skill}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false, amount: 0.8 }}
+              viewport={{ once: false }}
               transition={{
                 duration: 0.4,
-                delay: index * 0.1 + skillIndex * 0.05,
+                delay: index * 0.1 + skillIndex * 0.1,
                 ease: "easeIn",
               }}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
