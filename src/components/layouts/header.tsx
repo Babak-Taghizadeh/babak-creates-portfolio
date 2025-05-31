@@ -10,6 +10,7 @@ import { Button } from "../ui/button";
 import { Mail } from "lucide-react";
 import { memo } from "react";
 import MobileMenu from "./mobile-menu";
+import { cn } from "@/lib/utils";
 
 const Header = memo(() => {
   return (
@@ -27,7 +28,7 @@ const Header = memo(() => {
               {item.href ? (
                 <Link
                   href={item.href}
-                  className={navigationMenuTriggerStyle()}
+                  className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
                   aria-label={item.label}
                 >
                   {item.label}
