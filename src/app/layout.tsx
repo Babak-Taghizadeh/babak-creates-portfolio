@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import MainLayout from "@/components/layouts/main-layout";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,6 +17,7 @@ const RootLayout = ({
     <html lang="en">
       <body className={`antialiased`}>
         <MainLayout>{children}</MainLayout>
+        <Toaster richColors closeButton position="top-center" />
       </body>
     </html>
   );
