@@ -8,10 +8,10 @@ import HeroImage from "../../../public/images/babi.jpg";
 
 const Hero = () => {
   return (
-    <main className="flex flex-col-reverse items-center justify-center gap-12 px-8 py-16 md:flex-row md:px-24 md:py-28">
+    <main className="flex flex-col-reverse items-center justify-center gap-12 px-8 pt-0 pb-16 md:flex-row md:px-24 md:py-28">
       <div className="flex max-w-lg flex-col gap-7">
         <span className="text-primary text-xs font-semibold tracking-wider uppercase">
-          Frontend Developer
+          Full Stack Developer
         </span>
         <h1 className="mb-2 text-4xl leading-tight font-bold tracking-tight md:text-5xl">
           Hi I&apos;m Babak
