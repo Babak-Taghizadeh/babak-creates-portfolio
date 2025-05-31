@@ -83,22 +83,22 @@
   body {
     @apply bg-background text-foreground;
     cursor:
-      url("/cursor.svg") 6 6,
+      url("/main-cursor.svg") 6 6,
       default !important;
   }
   a,
   button,
   [role="button"] {
     cursor:
-      url("/circle.svg") 6 6,
+      url("/circle-cursor.svg") 6 6,
       pointer !important;
   }
   input,
   select,
   textarea {
-    /* cursor:
-      url("/cursor.svg") 6 6,
-      pointer !important; */
+    cursor:
+      url("/input-cursor.svg") 6 6,
+      pointer !important;
   }
 }
 
