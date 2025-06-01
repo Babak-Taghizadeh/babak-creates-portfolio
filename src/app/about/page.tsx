@@ -1,19 +1,21 @@
-import { ExperienceSection } from "@/components/about/experience-section";
-import { SkillsSection } from "@/components/about/skills-section";
-import { EducationSection } from "@/components/about/education-section";
-import { InterestsSection } from "@/components/about/interests-section";
-import AboutHeader from "@/components/about/about-header";
+import EducationSection from "@/components/sections/about/education-section";
+import ExperienceSection from "@/components/sections/about/experience-section";
+import InterestsSection from "@/components/sections/about/interests-section";
+import SkillsSection from "@/components/sections/about/skills-section";
+import SectionHeader from "@/components/sections/about/section-header";
 
 const AboutPage = () => {
   return (
-    <div className="container mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-24">
-      <AboutHeader />
-
+    <>
+      <SectionHeader
+        title="Hello, World!"
+        description="A passionate full-stack developer with a keen eye for creating elegant solutions in the least amount of time. I specialize in building responsive web applications using modern technologies."
+      />
       <ExperienceSection />
       <SkillsSection />
       <EducationSection />
       <InterestsSection />
-    </div>
+    </>
   );
 };
 

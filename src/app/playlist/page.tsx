@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 import { type PlaylistSection } from "@/lib/types";
-import PlaylistHeader from "@/components/playlist/playlist-header";
+import SectionHeader from "@/components/sections/about/section-header";
 
 const DynamicPlaylistSection = dynamic(
-  () => import("@/components/playlist/playlist-section"),
+  () => import("@/components/sections/playlist/playlist-section"),
   {
     loading: () => (
       <div className="from-muted/50 to-muted h-48 animate-pulse rounded-xl bg-gradient-to-br" />
@@ -30,14 +30,17 @@ const playlistData: PlaylistSection[] = [
 
 const PlaylistPage = () => {
   return (
-    <main className="container mx-auto max-w-7xl px-4 py-12">
-      <PlaylistHeader />
+    <>
+      <SectionHeader
+        title="Code & Chords"
+        description="The soundtracks that keep my IDE and I in flow state."
+      />
       <div className="space-y-16">
         {playlistData.map((section) => (
           <DynamicPlaylistSection key={section.id} section={section} />
         ))}
       </div>
-    </main>
+    </>
   );
 };
 
