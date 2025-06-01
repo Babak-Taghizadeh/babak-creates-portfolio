@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Code2 } from "lucide-react";
 import { SKILLS_DATA } from "./data";
 
-export const SkillsSection = () => {
+const SkillsSection = () => {
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -67,3 +67,5 @@ export const SkillsSection = () => {
     </motion.section>
   );
 };
+
+export default SkillsSection;

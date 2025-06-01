@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "../ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 interface SongCardProps {
   song: Song;

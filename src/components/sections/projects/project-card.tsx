@@ -8,11 +8,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import CategoryBadge from "./category-badge";
-import TechnologyBadge from "./technology-badge";
 import ProjectFeature from "./project-feature";
 import ProjectLinks from "./project-links";
 import { Project } from "@/lib/types";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+import {
+  PROJECT_CATEGORY_COLORS,
+  PROJECT_CATEGORY_ICONS,
+} from "@/lib/constants";
 
 interface ProjectCardProps {
   project: Project;
@@ -45,8 +49,16 @@ const ProjectCard = ({
     >
       <Card className="group hover:shadow-primary/5 hover:border-primary/50 from-card to-card/50 relative h-full overflow-hidden bg-gradient-to-b backdrop-blur-sm transition-all duration-500 hover:shadow-2xl">
         <div className="from-primary/0 via-primary/10 to-primary/0 absolute inset-0 bg-gradient-to-r opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-        <CategoryBadge category={project.category} />
+        <Badge
+          variant="outline"
+          className={cn(
+            "absolute top-[22px] right-4 backdrop-blur-sm",
+            PROJECT_CATEGORY_COLORS[project.category],
+          )}
+        >
+          {PROJECT_CATEGORY_ICONS[project.category]}
+          {project.category}
+        </Badge>
 
         <CardHeader className="relative pb-4">
           <motion.div
@@ -68,7 +80,19 @@ const ProjectCard = ({
         <CardContent className="space-y-6">
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech, techIndex) => (
-              <TechnologyBadge key={techIndex} tech={tech} index={techIndex} />
+              <motion.div
+                key={techIndex}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: techIndex * 0.1 }}
+              >
+                <Badge
+                  variant="secondary"
+                  className="bg-secondary/50 hover:bg-secondary transition-all duration-300 hover:scale-105"
+                >
+                  {tech}
+                </Badge>
+              </motion.div>
             ))}
           </div>
 

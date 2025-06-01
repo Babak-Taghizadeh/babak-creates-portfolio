@@ -58,17 +58,13 @@ const MobileMenu = () => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div
                     className={cn(
-                      "flex skew-y-45 items-center justify-center gap-2 animate-in duration-700",
+                      "flex skew-y-45 items-center justify-center gap-2 duration-700",
                       isFirst && "-translate-x-20",
                       isLast && "translate-x-18",
                     )}
                   >
-                    {!item.href && (
-                      <Mail
-                        className="!h-8 !w-8 text-primary"
-                      />
-                    )}
-                    <span className="text-4xl font-light text-black drop-shadow-md">
+                    {!item.href && <Mail className="text-primary !h-8 !w-8" />}
+                    <span className="text-foreground/80 text-3xl font-medium tracking-tight drop-shadow-md">
                       {item.label}
                     </span>
                   </div>
@@ -92,7 +88,7 @@ const MobileMenu = () => {
                 <Button
                   key={item.label}
                   className={cn(
-                    "absolute right-0 left-0 overflow-hidden rounded-none transition-colors duration-200",
+                    "text-foreground/80 absolute right-0 left-0 overflow-hidden rounded-none transition-colors duration-200",
                     colorClass,
                   )}
                   style={{ top, height }}

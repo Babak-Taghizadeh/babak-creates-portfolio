@@ -1,16 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "../ui/navigation-menu";
+} from "../../ui/navigation-menu";
 import { NAVIGATION_MENU_ITEMS } from "@/lib/constants";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { Mail } from "lucide-react";
 import { memo } from "react";
 import MobileMenu from "./mobile-menu";
-import { cn } from "@/lib/utils";
+import { NavItem } from "./nav-item";
 
 const Header = memo(() => {
   return (
@@ -19,20 +19,19 @@ const Header = memo(() => {
         href="/"
         className="hover:text-primary font-semibold tracking-tight transition-colors"
       >
-        /Babak
+        <Image
+          src="/images/Logo.png"
+          alt="Babak Portfolio Logo"
+          width={90}
+          height={90}
+        />
       </Link>
-      <NavigationMenu className="hidden md:block">
-        <NavigationMenuList className="gap-2">
+      <NavigationMenu className="ml-auto hidden md:block">
+        <NavigationMenuList className="gap-6">
           {NAVIGATION_MENU_ITEMS.map((item) => (
             <NavigationMenuItem key={item.label}>
               {item.href ? (
-                <Link
-                  href={item.href}
-                  className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
-                  aria-label={item.label}
-                >
-                  {item.label}
-                </Link>
+                <NavItem item={item} />
               ) : (
                 <Button
                   className="bg-primary/10 hover:bg-primary/20 text-primary gap-2 rounded-full transition-colors"

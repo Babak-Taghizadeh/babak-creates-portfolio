@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heart } from "lucide-react";
 import { INTERESTS } from "./data";
 
-export const InterestsSection = () => {
+const InterestsSection = () => {
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -39,3 +39,5 @@ export const InterestsSection = () => {
     </motion.section>
   );
 };
+
+export default InterestsSection;

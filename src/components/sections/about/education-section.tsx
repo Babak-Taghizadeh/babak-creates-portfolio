@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
 import { EDUCATION } from "./data";
 
-export const EducationSection = () => {
+const EducationSection = () => {
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -52,3 +52,5 @@ export const EducationSection = () => {
     </motion.section>
   );
 };
+
+export default EducationSection;

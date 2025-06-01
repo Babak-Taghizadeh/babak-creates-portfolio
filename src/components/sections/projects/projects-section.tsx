@@ -2,10 +2,10 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
-import ProjectCard from "./projects/project-card";
 import { PROJECTS } from "@/lib/constants";
+import ProjectCard from "./project-card";
 
-const Projects = () => {
+const ProjectsSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -111,4 +111,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectsSection;

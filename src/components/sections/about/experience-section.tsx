@@ -6,14 +6,14 @@ import { Badge } from "@/components/ui/badge";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
 import { EXPERIENCES } from "./data";
 
-export const ExperienceSection = () => {
+const ExperienceSection = () => {
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="mb-20"
+      className="mx-auto mb-20 max-w-7xl"
     >
       <h2 className="from-foreground via-primary to-foreground/70 mb-12 bg-gradient-to-r bg-clip-text text-center text-4xl font-bold text-transparent md:text-5xl">
         Professional Journey
@@ -70,3 +70,5 @@ export const ExperienceSection = () => {
     </motion.section>
   );
 };
+
+export default ExperienceSection;
