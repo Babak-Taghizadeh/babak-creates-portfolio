@@ -20,9 +20,9 @@ export const NavItem = ({ item }: NavItemProps) => {
       href={item.href}
       className={cn(
         navigationMenuTriggerStyle(),
-        pathname === item.href &&
-          "text-primary border-b-muted-foreground scale-115 rounded-none border-b after:w-full",
-        "transition-all duration-300",
+        pathname.includes(item.href) &&
+          "text-primary border-b-muted-foreground scale-115 rounded-none border-b",
+        "font-semibold transition-all duration-300",
       )}
       aria-label={item.label}
       aria-current={pathname === item.href ? "page" : undefined}
