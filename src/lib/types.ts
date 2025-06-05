@@ -1,4 +1,6 @@
-export interface Project {
+import { PortableTextBlock, Slug } from "@sanity/types";
+
+export interface IProject {
   title: string;
   description: string;
   technologies: string[];
@@ -8,8 +10,7 @@ export interface Project {
   category: "Front-End" | "Fullstack" | "Backend" | "Other";
 }
 
-export interface Song {
-  id: string;
+export interface ISongFields {
   title: string;
   artist: string;
   spotifyUrl: string;
@@ -17,7 +18,36 @@ export interface Song {
   genre: string;
 }
 
-export interface PlaylistSection {
-  id: string;
-  songs: Song[];
+export type TBlogCategory =
+  | "Technical"
+  | "Career"
+  | "Tutorials"
+  | "Personal"
+  | "Industry";
+
+export type TBlogSortOption = "newest" | "oldest" | "popular";
+
+export interface IBlogPost {
+  title: string;
+  slug: Slug;
+  excerpt: string;
+  content: PortableTextBlock[];
+  coverImage: string;
+  publishedAt: string;
+  readingTime: number;
+  categories: TBlogCategory[];
+}
+
+export interface IBlogFilters {
+  category?: TBlogCategory;
+  sortBy: TBlogSortOption;
+  page: number;
+  search?: string;
+}
+
+export interface IBlogPagination {
+  currentPage: number;
+  totalPages: number;
+  totalPosts: number;
+  postsPerPage: number;
 }

@@ -9,7 +9,8 @@ import {
   Sparkles,
   Code2,
 } from "lucide-react";
-import { Project, PlaylistSection } from "./types";
+import { IProject } from "./types";
+import { TBlogCategory, TBlogSortOption } from "@/lib/types";
 
 const SKILL_CATEGORIES = [
   {
@@ -119,7 +120,7 @@ const PROJECT_CATEGORY_ICONS = {
   Other: <Star className="h-4 w-4" />,
 };
 
-const PROJECTS: Project[] = [
+const PROJECTS: IProject[] = [
   {
     title: "Portfolio Website",
     description:
@@ -137,21 +138,18 @@ const PROJECTS: Project[] = [
   },
 ];
 
-const PLAYLIST_DATA: PlaylistSection[] = [
-  {
-    id: "favorites",
-    songs: [
-      {
-        id: "1",
-        title: "Bohemian Rhapsody",
-        artist: "Queen",
-        spotifyUrl: "https://open.spotify.com/track/6l8GvAyoUZwWDgF1e4822w",
-        coverImage: "/images/don.jpg",
-        genre: "Rock",
-      },
-      // Add more songs here
-    ],
-  },
+const BLOG_CATEGORIES: TBlogCategory[] = [
+  "Technical",
+  "Career",
+  "Tutorials",
+  "Personal",
+  "Industry",
+];
+
+const BLOG_SORT_OPTIONS: { value: TBlogSortOption; label: string }[] = [
+  { value: "newest", label: "Newest First" },
+  { value: "oldest", label: "Oldest First" },
+  { value: "popular", label: "Most Popular" },
 ];
 
 export {
@@ -160,5 +158,6 @@ export {
   PROJECT_CATEGORY_COLORS,
   PROJECT_CATEGORY_ICONS,
   PROJECTS,
-  PLAYLIST_DATA,
+  BLOG_CATEGORIES,
+  BLOG_SORT_OPTIONS,
 };
