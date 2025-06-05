@@ -1,37 +1,33 @@
-import { Suspense } from "react";
 import { Metadata } from "next";
-import { BlogFilters } from "@/components/sections/blogs/blog-filters";
+import { Suspense } from "react";
+import { client } from "@/sanity/lib/client";
+import { SanityDocument } from "next-sanity";
 import { BlogGrid } from "@/components/sections/blogs/blog-grid";
-import { BlogPagination } from "@/components/sections/blogs/blog-pagination";
-import { getBlogPosts } from "@/lib/blog/api";
-import { BlogCategory, SortOption } from "@/types/blog";
+import { getPostsQuery } from "@/lib/blog-utils";
+import BlogGridSkeleton from "@/components/sections/blogs/blog-grid-skeleton";
 import SectionHeader from "@/components/sections/about/section-header";
+import { BlogFilters } from "@/components/sections/blogs/blog-filters";
+import { NoPosts } from "@/components/sections/blogs/no-posts";
+import { IBlogPost, TBlogCategory, TBlogSortOption } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Blog | Babak Portfolio",
+  title: "Blogs | Babak Portfolio",
   description:
     "Explore articles about web development, career insights, and technical tutorials.",
 };
 
-interface BlogPageProps {
+interface BlogsPageProps {
   searchParams: {
-    page?: string;
-    category?: BlogCategory;
-    sort?: SortOption;
+    category?: TBlogCategory | "All";
+    sort?: TBlogSortOption;
   };
 }
 
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const params = await searchParams;
-  const currentPage = Number(params.page) || 1;
-  const category = params.category || undefined;
-  const sortBy = params.sort || "newest";
-
-  const { posts, pagination } = await getBlogPosts({
-    page: Number(currentPage),
-    category,
-    sortBy,
-  });
+const BlogsPage = async ({ searchParams }: BlogsPageProps) => {
+  const { category = "All", sort = "newest" } = await searchParams;
+  const posts = await client.fetch<SanityDocument<IBlogPost>[]>(
+    getPostsQuery(category, sort),
+  );
 
   return (
     <>
@@ -39,18 +35,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         title="Console.Log (Thoughts)"
         description="Explore articles about web development, career insights, and technical tutorials."
       />
-
-      <Suspense fallback={<div>Loading filters...</div>}>
-        <BlogFilters className="mb-8" />
-      </Suspense>
-      {/* Implement no blogs state */}
-      <BlogGrid posts={posts} />
-
-      {pagination.totalPages > 1 && (
-        <div className="mt-8">
-          <BlogPagination pagination={pagination} />
-        </div>
-      )}
+      <div className="mt-8 space-y-8">
+        <BlogFilters />
+        <Suspense fallback={<BlogGridSkeleton />}>
+          {posts.length > 0 ? <BlogGrid posts={posts} /> : <NoPosts />}
+        </Suspense>
+      </div>
     </>
   );
-}
+};
+
+export default BlogsPage;
