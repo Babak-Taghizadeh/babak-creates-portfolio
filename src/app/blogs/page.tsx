@@ -9,6 +9,7 @@ import SectionHeader from "@/components/sections/about/section-header";
 import { BlogFilters } from "@/components/sections/blogs/blog-filters";
 import { NoPosts } from "@/components/sections/blogs/no-posts";
 import { IBlogPost, TBlogCategory, TBlogSortOption } from "@/lib/types";
+import { PaginationControls } from "@/components/ui/pagination-controls";
 
 export const metadata: Metadata = {
   title: "Blogs | Babak Portfolio",
@@ -16,18 +17,28 @@ export const metadata: Metadata = {
     "Explore articles about web development, career insights, and technical tutorials.",
 };
 
+const POSTS_PER_PAGE = 12;
+
 interface BlogsPageProps {
   searchParams: {
     category?: TBlogCategory | "All";
     sort?: TBlogSortOption;
+    page?: string;
   };
 }
 
 const BlogsPage = async ({ searchParams }: BlogsPageProps) => {
-  const { category = "All", sort = "newest" } = await searchParams;
-  const posts = await client.fetch<SanityDocument<IBlogPost>[]>(
-    getPostsQuery(category, sort),
-  );
+  const { category = "All", sort = "newest", page = "1" } = await searchParams;
+  const currentPage = Number(page);
+  const start = (currentPage - 1) * POSTS_PER_PAGE;
+  const end = start + POSTS_PER_PAGE;
+
+  const { posts, total } = await client.fetch<{
+    posts: SanityDocument<IBlogPost>[];
+    total: number;
+  }>(getPostsQuery(category, sort, start, end));
+
+  const totalPages = Math.ceil(total / POSTS_PER_PAGE);
 
   return (
     <>
@@ -38,7 +49,20 @@ const BlogsPage = async ({ searchParams }: BlogsPageProps) => {
       <div className="mt-8 space-y-8">
         <BlogFilters />
         <Suspense fallback={<BlogGridSkeleton />}>
-          {posts.length > 0 ? <BlogGrid posts={posts} /> : <NoPosts />}
+          {posts.length > 0 ? (
+            <>
+              <BlogGrid posts={posts} />
+              {totalPages > 1 && (
+                <PaginationControls
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  className="mt-8"
+                />
+              )}
+            </>
+          ) : (
+            <NoPosts />
+          )}
         </Suspense>
       </div>
     </>

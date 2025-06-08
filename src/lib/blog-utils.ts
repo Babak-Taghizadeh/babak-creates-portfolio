@@ -1,24 +1,17 @@
 import { TBlogCategory, TBlogSortOption } from "@/lib/types";
 
 export const getPostsQuery = (
-  category?: TBlogCategory | "All",
-  sort?: TBlogSortOption,
+  category: TBlogCategory | "All",
+  sort: TBlogSortOption,
+  start: number = 0,
+  end: number = 12,
 ) => {
   const categoryFilter =
-    category && category !== "All" ? `&& "${category}" in categories` : "";
+    category === "All" ? "" : `&& category == "${category}"`;
+  const sortOrder = sort === "newest" ? "desc" : "asc";
 
-  const sortOrder =
-    sort === "oldest"
-      ? "publishedAt asc"
-      : sort === "popular"
-        ? "viewCount desc"
-        : "publishedAt desc";
-
-  return `*[
-    _type == "blogPost"
-    && defined(slug.current)
-    ${categoryFilter}
-  ]|order(${sortOrder})[0...12]{
+  return `{
+    "posts": *[_type == "blogPost" ${categoryFilter}] | order(publishedAt ${sortOrder})[${start}...${end}] {
     _id,
     title,
     slug,
@@ -28,5 +21,7 @@ export const getPostsQuery = (
     viewCount,
     categories,
     coverImage
+    },
+    "total": count(*[_type == "blogPost" ${categoryFilter}])
   }`;
 };
