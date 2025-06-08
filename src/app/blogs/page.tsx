@@ -1,37 +1,44 @@
-import { Suspense } from "react";
 import { Metadata } from "next";
-import { BlogFilters } from "@/components/sections/blogs/blog-filters";
+import { Suspense } from "react";
+import { client } from "@/sanity/lib/client";
+import { SanityDocument } from "next-sanity";
 import { BlogGrid } from "@/components/sections/blogs/blog-grid";
-import { BlogPagination } from "@/components/sections/blogs/blog-pagination";
-import { getBlogPosts } from "@/lib/blog/api";
-import { BlogCategory, SortOption } from "@/types/blog";
+import { getPostsQuery } from "@/lib/blog-utils";
+import BlogGridSkeleton from "@/components/sections/blogs/blog-grid-skeleton";
 import SectionHeader from "@/components/sections/about/section-header";
+import { BlogFilters } from "@/components/sections/blogs/blog-filters";
+import { NoPosts } from "@/components/sections/blogs/no-posts";
+import { IBlogPost, TBlogCategory, TBlogSortOption } from "@/lib/types";
+import { PaginationControls } from "@/components/ui/pagination-controls";
 
 export const metadata: Metadata = {
-  title: "Blog | Babak Portfolio",
+  title: "Blogs | Babak Portfolio",
   description:
     "Explore articles about web development, career insights, and technical tutorials.",
 };
 
-interface BlogPageProps {
+const POSTS_PER_PAGE = 12;
+
+interface BlogsPageProps {
   searchParams: {
+    category?: TBlogCategory | "All";
+    sort?: TBlogSortOption;
     page?: string;
-    category?: BlogCategory;
-    sort?: SortOption;
   };
 }
 
-export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const params = await searchParams;
-  const currentPage = Number(params.page) || 1;
-  const category = params.category || undefined;
-  const sortBy = params.sort || "newest";
+const BlogsPage = async ({ searchParams }: BlogsPageProps) => {
+  const { category = "All", sort = "newest", page = "1" } = await searchParams;
+  const currentPage = Number(page);
+  const start = (currentPage - 1) * POSTS_PER_PAGE;
+  const end = start + POSTS_PER_PAGE;
 
-  const { posts, pagination } = await getBlogPosts({
-    page: Number(currentPage),
-    category,
-    sortBy,
-  });
+  const { posts, total } = await client.fetch<{
+    posts: SanityDocument<IBlogPost>[];
+    total: number;
+  }>(getPostsQuery(category, sort, start, end));
+
+  const totalPages = Math.ceil(total / POSTS_PER_PAGE);
 
   return (
     <>
@@ -39,18 +46,27 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         title="Console.Log (Thoughts)"
         description="Explore articles about web development, career insights, and technical tutorials."
       />
-
-      <Suspense fallback={<div>Loading filters...</div>}>
-        <BlogFilters className="mb-8" />
-      </Suspense>
-      {/* Implement no blogs state */}
-      <BlogGrid posts={posts} />
-
-      {pagination.totalPages > 1 && (
-        <div className="mt-8">
-          <BlogPagination pagination={pagination} />
-        </div>
-      )}
+      <div className="mt-8 space-y-8">
+        <BlogFilters />
+        <Suspense fallback={<BlogGridSkeleton />}>
+          {posts.length > 0 ? (
+            <>
+              <BlogGrid posts={posts} />
+              {totalPages > 1 && (
+                <PaginationControls
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  className="mt-8"
+                />
+              )}
+            </>
+          ) : (
+            <NoPosts />
+          )}
+        </Suspense>
+      </div>
     </>
   );
-}
+};
+
+export default BlogsPage;

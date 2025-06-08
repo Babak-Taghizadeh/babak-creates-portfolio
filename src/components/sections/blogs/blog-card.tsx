@@ -3,19 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
-import { Clock, Eye, Tag } from "lucide-react";
-import { motion } from "framer-motion";
+import { Clock, Tag } from "lucide-react";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { BlogPost } from "@/types/blog";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import urlFor from "@/utils/urlForImage";
+import { SanityDocument } from "next-sanity";
+import { IBlogPost } from "@/lib/types";
 
 interface BlogCardProps {
-  post: BlogPost;
+  post: SanityDocument<IBlogPost>;
   className?: string;
   index?: number;
 }
@@ -26,13 +28,13 @@ export const BlogCard = ({ post, className, index = 0 }: BlogCardProps) => {
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
-        duration: 0.3,
-        delay: index * 0.1,
-        ease: [0.8, 0.8, 1, 0.8],
+        duration: 0.4,
+        delay: index * 0.2,
+        ease: "easeOut",
       }}
       className={cn("group block transition-all hover:shadow-md", className)}
     >
-      <Link href={`/blogs/${post.slug}`}>
+      <Link href={`/blogs/${post.slug.current}`}>
         <Card className="h-full overflow-hidden pt-0">
           <motion.div
             className="relative aspect-[16/9] w-full overflow-hidden"
@@ -40,7 +42,7 @@ export const BlogCard = ({ post, className, index = 0 }: BlogCardProps) => {
             transition={{ duration: 0.2 }}
           >
             <Image
-              src={post.coverImage}
+              src={urlFor(post.coverImage).url()}
               alt={post.title}
               fill
               className="object-cover transition-transform duration-300"
@@ -55,7 +57,7 @@ export const BlogCard = ({ post, className, index = 0 }: BlogCardProps) => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              {post.categories.map((category) => (
+              {post.categories.map((category: string) => (
                 <motion.span
                   key={category}
                   className="bg-primary/10 text-primary inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium"
@@ -100,13 +102,6 @@ export const BlogCard = ({ post, className, index = 0 }: BlogCardProps) => {
               >
                 <Clock className="h-4 w-4" />
                 {post.readingTime} min read
-              </motion.span>
-              <motion.span
-                className="flex items-center gap-1"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Eye className="h-4 w-4" />
-                {post.viewCount.toLocaleString()} views
               </motion.span>
             </motion.div>
             <motion.time

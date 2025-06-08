@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   Card,
   CardContent,
@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import ProjectFeature from "./project-feature";
 import ProjectLinks from "./project-links";
-import { Project } from "@/lib/types";
+import { IProject } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import {
@@ -19,7 +19,7 @@ import {
 } from "@/lib/constants";
 
 interface ProjectCardProps {
-  project: Project;
+  project: IProject;
   isHovered: boolean;
   onHoverStart: () => void;
   onHoverEnd: () => void;

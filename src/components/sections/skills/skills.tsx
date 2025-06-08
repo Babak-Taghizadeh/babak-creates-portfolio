@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import SkillCard from "./skill-card";
 import { SKILL_CATEGORIES } from "@/lib/constants";
 
@@ -14,7 +14,7 @@ const Skills = () => {
         transition={{ duration: 0.6 }}
         className="mb-12 text-center"
       >
-        <h2 className="from-foreground via-primary to-foreground/70 pb-6 bg-gradient-to-r bg-clip-text text-5xl font-bold text-transparent md:text-6xl">
+        <h2 className="from-foreground via-primary to-foreground/70 bg-gradient-to-r bg-clip-text pb-6 text-5xl font-bold text-transparent md:text-6xl">
           Technical Skills
         </h2>
         <p className="text-secondary-foreground mx-auto max-w-2xl text-base leading-relaxed md:text-lg">

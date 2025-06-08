@@ -1,6 +1,6 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
-import { motion } from "framer-motion";
+
+import { motion } from "motion/react";
 import {
   Select,
   SelectContent,
@@ -10,20 +10,9 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { BlogCategory, SortOption } from "@/types/blog";
-
-const CATEGORIES: BlogCategory[] = [
-  "Technical",
-  "Career",
-  "Tutorials",
-  "Personal",
-  "Industry",
-];
-const SORT_OPTIONS: { value: SortOption; label: string }[] = [
-  { value: "newest", label: "Newest First" },
-  { value: "oldest", label: "Oldest First" },
-  { value: "popular", label: "Most Popular" },
-];
+import { useRouter, useSearchParams } from "next/navigation";
+import { TBlogCategory, TBlogSortOption } from "@/types/blog";
+import { BLOG_CATEGORIES, BLOG_SORT_OPTIONS } from "@/lib/constants";
 
 interface BlogFiltersProps {
   className?: string;
@@ -33,19 +22,28 @@ export const BlogFilters = ({ className }: BlogFiltersProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const currentCategory = searchParams.get("category") as BlogCategory | null;
-  const currentSort = (searchParams.get("sort") as SortOption) || "newest";
+  const currentCategory =
+    (searchParams.get("category") as TBlogCategory) || "All";
+  const currentSort = (searchParams.get("sort") as TBlogSortOption) || "newest";
 
-  const updateFilters = (updates: Record<string, string>) => {
+  const updateFilters = (
+    category?: TBlogCategory | "All",
+    sort?: TBlogSortOption,
+  ) => {
     const params = new URLSearchParams(searchParams.toString());
-    Object.entries(updates).forEach(([key, value]) => {
-      if (value) {
-        params.set(key, value);
+
+    if (category) {
+      if (category === "All") {
+        params.delete("category");
       } else {
-        params.delete(key);
+        params.set("category", category);
       }
-    });
-    params.set("page", "1");
+    }
+
+    if (sort) {
+      params.set("sort", sort);
+    }
+
     router.push(`/blogs?${params.toString()}`);
   };
 
@@ -60,7 +58,7 @@ export const BlogFilters = ({ className }: BlogFiltersProps) => {
       )}
     >
       <div className="flex flex-wrap gap-2">
-        {["All", ...CATEGORIES].map((category, index) => (
+        {["All", ...BLOG_CATEGORIES].map((category, index) => (
           <motion.div
             key={category}
             initial={{ opacity: 0, y: 10 }}
@@ -68,19 +66,9 @@ export const BlogFilters = ({ className }: BlogFiltersProps) => {
             transition={{ duration: 0.2, delay: index * 0.2 }}
           >
             <Button
-              variant={
-                category === "All"
-                  ? !currentCategory
-                    ? "default"
-                    : "outline"
-                  : currentCategory === category
-                    ? "default"
-                    : "outline"
-              }
-              onClick={() =>
-                updateFilters({ category: category === "All" ? "" : category })
-              }
               size="sm"
+              variant={currentCategory === category ? "default" : "outline"}
+              onClick={() => updateFilters(category as TBlogCategory | "All")}
               className="text-xs sm:text-sm"
             >
               {category}
@@ -96,13 +84,15 @@ export const BlogFilters = ({ className }: BlogFiltersProps) => {
       >
         <Select
           value={currentSort}
-          onValueChange={(value) => updateFilters({ sort: value })}
+          onValueChange={(value: TBlogSortOption) =>
+            updateFilters(undefined, value)
+          }
         >
           <SelectTrigger className="w-full text-xs sm:w-[160px] sm:text-sm">
             <SelectValue placeholder="Sort by" />
           </SelectTrigger>
           <SelectContent>
-            {SORT_OPTIONS.map((option) => (
+            {BLOG_SORT_OPTIONS.map((option) => (
               <SelectItem
                 key={option.value}
                 value={option.value}

@@ -7,14 +7,14 @@ import GithubIcon from "../../../public/icons/github-mark.svg";
 import LinkedinIcon from "../../../public/icons/linkedin-mark.svg";
 import Link from "next/link";
 import HeroImage from "../../../public/images/babi.jpg";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 
 const Hero = () => {
   const [showText, setShowText] = useState(false);
 
   return (
-    <main className="flex flex-col-reverse items-center justify-center gap-12 px-8 pt-0 pb-16 md:flex-row md:px-24 md:py-28">
+    <main className="flex flex-col-reverse items-center justify-center gap-12 px-8 pt-0 pb-16 md:flex-row md:items-start md:px-24 md:py-28">
       <motion.div
         className="flex max-w-lg flex-col gap-7"
         initial={{ opacity: 0, y: 20 }}
@@ -96,7 +96,7 @@ const Hero = () => {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
       >
         <div
-          className="relative flex h-64 w-64 cursor-pointer items-center justify-center rounded-full bg-gradient-to-tr from-blue-100 to-blue-300 shadow-lg"
+          className="from-primary/0 via-primary/40 to-primary/90 relative flex h-64 w-64 cursor-pointer items-center justify-center rounded-full bg-gradient-to-tr shadow-lg"
           onClick={() => setShowText(true)}
         >
           <Image

@@ -1,5 +1,4 @@
-import { type Song } from "@/lib/types";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Music2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +6,12 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { SanityDocument } from "next-sanity";
+import { ISongFields } from "@/lib/types";
+import urlFor from "@/utils/urlForImage";
 
 interface SongCardProps {
-  song: Song;
+  song: SanityDocument<ISongFields>;
 }
 
 const SongCard = ({ song }: SongCardProps) => {
@@ -26,7 +28,7 @@ const SongCard = ({ song }: SongCardProps) => {
           <div className="relative aspect-square w-full overflow-hidden rounded-lg">
             {coverImage ? (
               <Image
-                src={coverImage}
+                src={urlFor(coverImage).url()}
                 alt={`${title} album cover`}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -60,10 +62,7 @@ const SongCard = ({ song }: SongCardProps) => {
             href={spotifyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={cn(
-              buttonVariants(),
-              "absolute right-4 bottom-4 p-1 backdrop-blur-sm transition-colors",
-            )}
+            className={cn(buttonVariants(), "absolute right-4 bottom-4 p-1")}
             aria-label={`Listen to ${title} by ${artist} on Spotify`}
           >
             <Image
