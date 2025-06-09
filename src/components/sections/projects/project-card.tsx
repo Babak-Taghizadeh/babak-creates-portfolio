@@ -68,7 +68,7 @@ const ProjectCard = ({
             }}
             transition={{ duration: 0.3 }}
           >
-            <CardTitle className="group-hover:text-primary text-lg font-bold transition-colors duration-300 md:text-2xl">
+            <CardTitle className="group-hover:text-primary max-w-3/4 text-lg font-bold break-words transition-colors duration-300 md:text-2xl">
               {project.title}
             </CardTitle>
             <CardDescription className="mt-2 text-base">
