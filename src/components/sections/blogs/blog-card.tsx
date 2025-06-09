@@ -5,7 +5,6 @@ import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 import { Clock, Tag } from "lucide-react";
 import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
 import {
   Card,
   CardContent,
@@ -15,24 +14,26 @@ import {
 import urlFor from "@/utils/urlForImage";
 import { SanityDocument } from "next-sanity";
 import { IBlogPost } from "@/lib/types";
+import useMediaQuery from "@/hooks/use-media-query";
+import {
+  createStaggeredAnimation,
+  createViewportAnimation,
+} from "@/lib/animations";
 
 interface BlogCardProps {
   post: SanityDocument<IBlogPost>;
-  className?: string;
   index?: number;
 }
 
-export const BlogCard = ({ post, className, index = 0 }: BlogCardProps) => {
+export const BlogCard = ({ post, index = 0 }: BlogCardProps) => {
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+  const desktopAnimation = createStaggeredAnimation({ index });
+  const mobileAnimation = createViewportAnimation();
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.4,
-        delay: index * 0.2,
-        ease: "easeOut",
-      }}
-      className={cn("group block transition-all hover:shadow-md", className)}
+      {...(isDesktop ? desktopAnimation : mobileAnimation)}
+      className={"group block hover:shadow-md"}
     >
       <Link href={`/blogs/${post.slug.current}`}>
         <Card className="h-full overflow-hidden pt-0">

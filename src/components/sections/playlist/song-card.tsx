@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "motion/react";
 import { Music2 } from "lucide-react";
 import Image from "next/image";
@@ -9,20 +11,26 @@ import { buttonVariants } from "@/components/ui/button";
 import { SanityDocument } from "next-sanity";
 import { ISongFields } from "@/lib/types";
 import urlFor from "@/utils/urlForImage";
+import useMediaQuery from "@/hooks/use-media-query";
+import {
+  createStaggeredAnimation,
+  createViewportAnimation,
+} from "@/lib/animations";
 
 interface SongCardProps {
   song: SanityDocument<ISongFields>;
+  index: number;
 }
 
-const SongCard = ({ song }: SongCardProps) => {
+const SongCard = ({ song, index = 0 }: SongCardProps) => {
   const { title, artist, spotifyUrl, coverImage, genre } = song;
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+
+  const desktopAnimation = createStaggeredAnimation({ index });
+  const mobileAnimation = createViewportAnimation();
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <motion.div {...(isDesktop ? desktopAnimation : mobileAnimation)}>
       <Card className="group from-primary/70 via-muted/95 to-background/30 relative overflow-hidden bg-gradient-to-br py-0 shadow-xl transition-all hover:shadow-md">
         <CardContent className="p-4">
           <div className="relative aspect-square w-full overflow-hidden rounded-lg">
