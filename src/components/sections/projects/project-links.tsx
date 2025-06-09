@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Github, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import Image from "next/image";
+import GithubIcon from "../../../../public/icons/github-mark.svg";
 
 interface ProjectLinksProps {
   githubUrl?: string;
@@ -17,7 +19,7 @@ const ProjectLinks = ({ githubUrl, liveUrl, isHovered }: ProjectLinksProps) => {
           href={githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted-foreground hover:text-foreground group/link inline-flex items-center text-sm transition-colors"
+          className="text-muted-foreground hover:text-foreground group/link inline-flex items-center gap-2 text-sm transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -27,7 +29,9 @@ const ProjectLinks = ({ githubUrl, liveUrl, isHovered }: ProjectLinksProps) => {
             }}
             transition={{ duration: 0.5 }}
           >
-            <Github className="group-hover/link:text-primary mr-2 h-4 w-4" />
+            <Image src={GithubIcon} alt="GitHub" width={16} height={16} />
+
+            {/* <Github className="group-hover/link:text-primary mr-2 h-4 w-4" />z */}
           </motion.div>
           View Code
         </motion.a>
