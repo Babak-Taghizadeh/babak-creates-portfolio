@@ -14,7 +14,7 @@ const Hero = () => {
   const [showText, setShowText] = useState(false);
 
   return (
-    <main className="flex flex-col-reverse items-center justify-center gap-12 px-8 pt-0 pb-16 md:flex-row md:items-start md:px-24 md:py-28">
+    <main className="flex flex-col-reverse items-center justify-center gap-12 px-8 py-16 md:flex-row md:items-start md:px-24 md:pt-24">
       <motion.div
         className="flex max-w-lg flex-col gap-7"
         initial={{ opacity: 0, y: 20 }}
@@ -60,9 +60,16 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <Button className="w-fit">
-            <ArrowDown className="animate-bounce" />
-            Download CV
+          <Button asChild className="w-fit">
+            <Link
+              href="/Babak-Taghizadeh-CV.pdf"
+              download="Babak_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ArrowDown className="animate-bounce" />
+              Download CV
+            </Link>
           </Button>
         </motion.div>
         <motion.div
@@ -72,7 +79,7 @@ const Hero = () => {
           transition={{ delay: 0.6, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <Link
-            href="https://github.com/babaktaghizadeh"
+            href="https://github.com/Babak-Taghizadeh"
             target="_blank"
             className="transition duration-150 hover:scale-110"
             rel="noopener noreferrer"
@@ -80,7 +87,7 @@ const Hero = () => {
             <Image src={GithubIcon} alt="GitHub" width={20} height={20} />
           </Link>
           <Link
-            href="https://github.com/babaktaghizadeh"
+            href="https://www.linkedin.com/in/babak-taghizadeh/"
             target="_blank"
             className="transition duration-150 hover:scale-110"
             rel="noopener noreferrer"
@@ -107,7 +114,7 @@ const Hero = () => {
             height={210}
           />
           <Code2
-            className="text-primary-foreground bg-foreground absolute right-[26px] bottom-[26px] rounded-full p-[2px]"
+            className="text-background bg-foreground absolute right-[26px] bottom-[26px] rounded-full p-[2px]"
             size={22}
           />
           <AnimatePresence>
@@ -123,7 +130,7 @@ const Hero = () => {
                 onAnimationComplete={() => setShowText(false)}
               >
                 <span className="bg-primary rounded-2xl p-2 text-xl font-bold drop-shadow-lg">
-                  Life Is Good!
+                  Keep Goin
                 </span>
               </motion.div>
             )}
