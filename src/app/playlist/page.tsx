@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { Metadata } from "next";
-import SectionHeader from "@/components/sections/about/section-header";
+import SectionHeader from "@/components/shared/section-header";
 import PlaylistSectionSkeleton from "@/components/sections/playlist/playlist-section-skeleton";
 import { ISongFields } from "@/lib/types";
 import { client } from "@/sanity/lib/client";
@@ -52,7 +52,8 @@ interface PlaylistPageProps {
 }
 
 const PlaylistPage = async ({ searchParams }: PlaylistPageProps) => {
-  const currentPage = Number(searchParams.page) || 1;
+  const params = await searchParams;
+  const currentPage = Number(params.page) || 1;
   const start = (currentPage - 1) * POSTS_PER_PAGE;
   const end = start + POSTS_PER_PAGE;
 

@@ -5,7 +5,7 @@ import { SanityDocument } from "next-sanity";
 import { BlogGrid } from "@/components/sections/blogs/blog-grid";
 import { getPostsQuery } from "@/lib/blog-utils";
 import BlogGridSkeleton from "@/components/sections/blogs/blog-grid-skeleton";
-import SectionHeader from "@/components/sections/about/section-header";
+import SectionHeader from "@/components/shared/section-header";
 import { BlogFilters } from "@/components/sections/blogs/blog-filters";
 import { NoPosts } from "@/components/sections/blogs/no-posts";
 import { IBlogPost, TBlogCategory, TBlogSortOption } from "@/lib/types";
