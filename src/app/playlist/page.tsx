@@ -70,7 +70,7 @@ const PlaylistPage = async ({ searchParams }: PlaylistPageProps) => {
         title="Code & Chords"
         description="The soundtracks that keep my IDE and I in flow state."
       />
-      <div className="space-y-8">
+      <div className="mt-8 space-y-8">
         <Suspense fallback={<PlaylistSectionSkeleton />}>
           <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {songs.map((song, index) => (
