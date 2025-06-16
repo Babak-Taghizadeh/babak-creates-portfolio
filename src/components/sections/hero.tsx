@@ -125,12 +125,12 @@ const Hero = () => {
                 animate={{ opacity: 1, scale: 2.5, y: 0 }}
                 exit={{ opacity: 0, scale: 2.5, y: 100 }}
                 transition={{
-                  duration: 2,
+                  duration: 0.7,
                 }}
                 onAnimationComplete={() => setShowText(false)}
               >
-                <span className="bg-primary rounded-2xl p-2 text-xl font-bold drop-shadow-lg">
-                  Keep Goin
+                <span className="bg-primary/80 rounded-md p-1 text-xl font-bold drop-shadow-lg">
+                  GOD☝🏽
                 </span>
               </motion.div>
             )}
