@@ -7,7 +7,7 @@ export const getPostsQuery = (
   end: number = 12,
 ) => {
   const categoryFilter =
-    category === "All" ? "" : `&& category == "${category}"`;
+    category === "All" ? "" : `&& "${category}" in categories`;
   const sortOrder = sort === "newest" ? "desc" : "asc";
 
   return `{
