@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -39,6 +41,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --dot-bg: var(--bg-elements);
 }
 
 :root {
@@ -47,12 +50,12 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(0.5461 0.2152 262.88);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(0.515 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -72,8 +75,45 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --background: oklch(1 0 0);
+  --background: oklch(0.9889 0.004 286.33);
   --foreground: oklch(0.145 0 0);
+  --bg-elements: oklch(0.9276 0.0058 264.53);
+}
+
+.dark {
+  --radius: 0.625rem;
+  --card: oklch(0.2 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.2 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.5461 0.2152 262.88);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.25 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.8  0 0);
+  --accent: oklch(0.25 0 0);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.65 0.245 27.325);
+  --border: oklch(0.3 0 0);
+  --input: oklch(0.3 0 0);
+  --ring: oklch(0.5 0 0);
+  --chart-1: oklch(0.75 0.222 41.116);
+  --chart-2: oklch(0.7 0.118 184.704);
+  --chart-3: oklch(0.65 0.07 227.392);
+  --chart-4: oklch(0.8 0.189 84.429);
+  --chart-5: oklch(0.75 0.188 70.08);
+  --sidebar: oklch(0.15 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.95 0 0);
+  --sidebar-primary-foreground: oklch(0.15 0 0);
+  --sidebar-accent: oklch(0.25 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.3 0 0);
+  --sidebar-ring: oklch(0.5 0 0);
+  --background: oklch(0.1 0.004 286.33);
+  --foreground: oklch(0.95 0 0);
+  --bg-elements: oklch(0.23 0.0119 285.81);
 }
 
 @layer base {
@@ -82,9 +122,28 @@
   }
   body {
     @apply bg-background text-foreground;
+    cursor:
+      url("/main-cursor.svg") 6 6,
+      default !important;
+  }
+  a,
+  button,
+  [role="button"] {
+    cursor:
+      url("/circle-cursor.svg") 6 6,
+      pointer !important;
+  }
+  input,
+  select,
+  textarea {
+    cursor:
+      url("/input-cursor.svg") 6 6,
+      pointer !important;
   }
 }
 
-button {
-  cursor: pointer;
+@layer utilities {
+  .section-wrapper {
+    @apply container mx-auto space-y-8 px-4 py-16 md:px-6;
+  }
 }

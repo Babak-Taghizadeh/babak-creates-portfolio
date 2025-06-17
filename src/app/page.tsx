@@ -1,11 +1,17 @@
-import { Button } from "@/components/ui/button";
+import Hero from "@/components/sections/hero/hero";
+import ContactForm from "@/components/sections/contact-form";
+import ProjectsSection from "@/components/sections/projects/projects-section";
+import Skills from "@/components/sections/skills/skills";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
-      <main className="row-start-2 flex flex-col items-center gap-[32px] sm:items-start">
-        <Button>Button</Button>
-      </main>
-    </div>
+    <>
+      <Hero />
+      <Skills />
+      <ProjectsSection />
+      <ContactForm />
+    </>
   );
-}
+};
+
+export default Home;
