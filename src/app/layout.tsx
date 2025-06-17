@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://domain.com",
+    url: "https://babakcreates.com",
     title: "Babak Portfolio | Full-Stack Developer",
     description:
       "Full-stack developer specializing in building exceptional digital experiences with modern web technologies.",
@@ -63,7 +63,7 @@ const RootLayout = ({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`antialiased ${rajdhani.className}`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <MainLayout>{children}</MainLayout>
           <Toaster richColors closeButton position="top-center" />
         </ThemeProvider>
