@@ -81,7 +81,7 @@ export const BlogCard = ({ post, index = 0 }: BlogCardProps) => {
 
           <CardContent>
             <motion.p
-              className="text-muted-foreground line-clamp-2 text-sm"
+              className="text-muted-foreground line-clamp-3 text-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}

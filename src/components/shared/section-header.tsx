@@ -17,7 +17,7 @@ const SectionHeader = ({
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
         viewport={{ once: true }}
-        className="from-foreground via-primary to-foreground/70 bg-gradient-to-r bg-clip-text pb-6 text-5xl font-bold tracking-tight text-transparent md:text-6xl"
+        className="from-foreground via-primary to-foreground/70 bg-gradient-to-r bg-clip-text pb-6 text-4xl font-bold tracking-tight text-transparent md:text-6xl"
       >
         {title}
       </motion.h1>
