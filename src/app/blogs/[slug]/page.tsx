@@ -46,7 +46,6 @@ const BlogPostPage = async ({
 }: {
   params: Promise<{ slug: string }>;
 }) => {
-  console.log(params);
   const post = await client.fetch<SanityDocument<IBlogPost>>(
     POST_QUERY,
     { slug: (await params).slug },
