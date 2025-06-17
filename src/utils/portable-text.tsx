@@ -55,7 +55,7 @@ export const renderBlock = (block: PortableTextBlock) => {
         );
       case "h3":
         return (
-          <h3 key={block._key} className="mb-2 text-2xl font-bold">
+          <h3 key={block._key} className="mt-12 mb-2 text-2xl font-bold">
             {content}
           </h3>
         );

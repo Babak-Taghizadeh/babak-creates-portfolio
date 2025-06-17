@@ -4,8 +4,9 @@ import { motion } from "motion/react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { sendContactEmail } from "@/app/actions/contact";
+import { sendContactEmail } from "@/lib/actions/contact";
 import SubmitButton from "../shared/submit-button";
+import SectionHeader from "../shared/section-header";
 
 const ContactForm = () => {
   const handleSubmit = async (formData: FormData) => {
@@ -29,29 +30,18 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="container mx-auto px-4 py-16 md:px-6 md:py-24">
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="mx-auto max-w-2xl text-center"
-      >
-        <h2 className="from-foreground via-primary to-foreground/70 bg-gradient-to-r bg-clip-text pb-6 text-5xl font-bold text-transparent md:text-6xl">
-          Get in Touch
-        </h2>
-        <p className="text-secondary-foreground mx-auto max-w-2xl text-base leading-relaxed md:text-lg">
-          Have a question or want to work together? Feel free to reach out!
-        </p>
-      </motion.div>
-
+    <section id="contact" className="section-wrapper">
+      <SectionHeader
+        title="Get in Touch"
+        description="Have a question or want to work together? Feel free to reach out!"
+      />
       <motion.form
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
         action={handleSubmit}
-        className="mx-auto mt-12 max-w-xl space-y-6"
+        className="mx-auto max-w-xl space-y-6"
       >
         <div className="grid gap-6 sm:grid-cols-2">
           <div className="space-y-2">

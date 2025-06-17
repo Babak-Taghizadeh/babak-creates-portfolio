@@ -4,8 +4,9 @@ import { client } from "@/sanity/lib/client";
 import { SanityDocument } from "next-sanity";
 import { BlogPostContent } from "@/components/sections/blogs/blog-post-content";
 import { BlogPostBackButton } from "@/components/sections/blogs/blog-post-back-button";
-import { BlogPostHero } from "@/components/sections/blogs/blog-post-hero";
 import urlFor from "@/utils/urlForImage";
+import BlogPostHero from "@/components/sections/blogs/blog-post-hero";
+import { IBlogPost } from "@/lib/types";
 
 const options = { next: { revalidate: 30 } };
 
@@ -24,13 +25,13 @@ export const generateMetadata = async ({
 
   if (!post) {
     return {
-      title: "Post Not Found | Babak Portfolio",
+      title: "Post Not Found",
       description: "The requested blog post could not be found.",
     };
   }
 
   return {
-    title: `${post.title} | Babak Portfolio`,
+    title: `${post.title}`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -45,8 +46,7 @@ const BlogPostPage = async ({
 }: {
   params: Promise<{ slug: string }>;
 }) => {
-  console.log(params);
-  const post = await client.fetch<SanityDocument>(
+  const post = await client.fetch<SanityDocument<IBlogPost>>(
     POST_QUERY,
     { slug: (await params).slug },
     options,
@@ -57,7 +57,7 @@ const BlogPostPage = async ({
   }
 
   return (
-    <article className="mx-auto max-w-4xl relative">
+    <article className="relative mx-auto max-w-4xl">
       <BlogPostBackButton />
       <BlogPostHero post={post} />
       <BlogPostContent post={post} />

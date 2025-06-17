@@ -11,8 +11,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
-import { TBlogCategory, TBlogSortOption } from "@/types/blog";
 import { BLOG_CATEGORIES, BLOG_SORT_OPTIONS } from "@/lib/constants";
+import { TBlogCategory, TBlogSortOption } from "@/lib/types";
 
 interface BlogFiltersProps {
   className?: string;

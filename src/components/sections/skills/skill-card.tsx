@@ -1,5 +1,10 @@
 "use client";
 
+import useMediaQuery from "@/hooks/use-media-query";
+import {
+  createStaggeredViewportAnimation,
+  createViewportAnimation,
+} from "@/lib/animations";
 import { motion } from "motion/react";
 import { useState, useRef } from "react";
 
@@ -13,6 +18,9 @@ interface SkillCardProps {
 const SkillCard = ({ title, icon, skills, index }: SkillCardProps) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const cardRef = useRef<HTMLDivElement>(null);
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+  const desktopAnimation = createStaggeredViewportAnimation({ index });
+  const mobileAnimation = createViewportAnimation();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -27,11 +35,8 @@ const SkillCard = ({ title, icon, skills, index }: SkillCardProps) => {
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.2, delay: index * 0.2, ease: "easeIn" }}
-      className="group bg-card hover:border-primary/50 relative overflow-hidden rounded-lg border p-6 transition-all duration-300 hover:shadow-lg"
+      {...(isDesktop ? desktopAnimation : mobileAnimation)}
+      className="group bg-card hover:border-primary/50 relative overflow-hidden rounded-lg border p-6 hover:shadow-lg"
       onMouseMove={handleMouseMove}
     >
       <div

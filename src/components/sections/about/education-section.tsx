@@ -4,29 +4,23 @@ import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
 import { EDUCATION } from "./data";
+import SectionHeader from "@/components/shared/section-header";
 
 const EducationSection = () => {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="mb-20"
-    >
-      <h2 className="from-foreground via-primary to-foreground/70 mb-12 bg-gradient-to-r bg-clip-text text-center text-4xl font-bold text-transparent md:text-5xl">
-        Education
-      </h2>
+    <section className="section-wrapper">
+      <SectionHeader title="Education" />
       <div className="grid gap-8 md:grid-cols-2">
         {EDUCATION.map((edu, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.2 }}
+            transition={{ duration: 0.2, delay: index * 0.2 }}
+            viewport={{ once: true }}
           >
             <Card>
-              <CardContent className="p-6">
+              <CardContent>
                 <div className="flex items-center gap-2">
                   <GraduationCap className="text-primary h-5 w-5" />
                   <h3 className="text-xl font-semibold">{edu.degree}</h3>
@@ -49,7 +43,7 @@ const EducationSection = () => {
           </motion.div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

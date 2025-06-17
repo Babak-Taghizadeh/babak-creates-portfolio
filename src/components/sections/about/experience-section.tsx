@@ -5,19 +5,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
 import { EXPERIENCES } from "./data";
+import SectionHeader from "@/components/shared/section-header";
 
 const ExperienceSection = () => {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="mx-auto mb-20 max-w-7xl"
-    >
-      <h2 className="from-foreground via-primary to-foreground/70 mb-12 bg-gradient-to-r bg-clip-text text-center text-4xl font-bold text-transparent md:text-5xl">
-        Professional Journey
-      </h2>
+    <section className="section-wrapper max-w-7xl">
+      <SectionHeader title="Professional Journey" />
       <div className="relative space-y-8">
         {EXPERIENCES.map((exp, index) => (
           <motion.div
@@ -25,6 +18,7 @@ const ExperienceSection = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.2 }}
+            viewport={{ once: true }}
             className="relative"
           >
             <Card className="relative overflow-hidden">
@@ -67,7 +61,7 @@ const ExperienceSection = () => {
           </motion.div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 };
 

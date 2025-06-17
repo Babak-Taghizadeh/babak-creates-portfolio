@@ -1,10 +1,18 @@
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+"use client";
+
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu, Mail } from "lucide-react";
 import { NAVIGATION_MENU_ITEMS } from "@/lib/constants";
 import Link from "next/link";
-import { memo } from "react";
+import { memo, useState } from "react";
 import { cn } from "@/lib/utils";
+import { usePathname, useRouter } from "next/navigation";
 
 const COLORS = [
   "bg-primary/40 hover:bg-pink-500/30",
@@ -14,11 +22,25 @@ const COLORS = [
 ];
 
 const MobileMenu = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const [isOpen, setIsOpen] = useState(false);
   const totalItems = NAVIGATION_MENU_ITEMS.length;
   const sectionHeight = 100 / totalItems;
 
+  const scrollToContact = () => {
+    if (pathname === "/") {
+      const endElement = document.getElementById("contact");
+      endElement?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push("/#contact");
+    }
+    setIsOpen(false);
+  };
+
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button
           variant="ghost"
@@ -26,9 +48,10 @@ const MobileMenu = () => {
           className="md:hidden"
           aria-label="Open menu"
         >
-          <Menu className="h-5 w-5" />
+          <Menu />
         </Button>
       </SheetTrigger>
+      <SheetTitle></SheetTitle>
       <SheetContent
         side="right"
         className="w-[300px] overflow-hidden p-0 sm:w-[400px]"
@@ -81,6 +104,7 @@ const MobileMenu = () => {
                   )}
                   style={{ top, height }}
                   aria-label={item.label}
+                  onClick={() => setIsOpen(false)}
                 >
                   {content}
                 </Link>
@@ -93,6 +117,7 @@ const MobileMenu = () => {
                   )}
                   style={{ top, height }}
                   aria-label={`Contact via ${item.label}`}
+                  onClick={scrollToContact}
                 >
                   {content}
                 </Button>
