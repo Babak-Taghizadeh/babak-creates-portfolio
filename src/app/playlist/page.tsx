@@ -46,9 +46,9 @@ const POSTS_QUERY = `{
 const options = { next: { revalidate: 30 } };
 
 interface PlaylistPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
-  };
+  }>;
 }
 
 const PlaylistPage = async ({ searchParams }: PlaylistPageProps) => {

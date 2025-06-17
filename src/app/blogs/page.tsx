@@ -20,11 +20,11 @@ export const metadata: Metadata = {
 const POSTS_PER_PAGE = 12;
 
 interface BlogsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     category?: TBlogCategory | "All";
     sort?: TBlogSortOption;
     page?: string;
-  };
+  }>;
 }
 
 const BlogsPage = async ({ searchParams }: BlogsPageProps) => {
