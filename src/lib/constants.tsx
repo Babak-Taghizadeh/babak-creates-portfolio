@@ -197,7 +197,6 @@ const PROJECTS: IProject[] = [
 const BLOG_CATEGORIES: TBlogCategory[] = [
   "Technical",
   "Career",
-  "Tutorials",
   "Personal",
   "Industry",
 ];
@@ -205,7 +204,6 @@ const BLOG_CATEGORIES: TBlogCategory[] = [
 const BLOG_SORT_OPTIONS: { value: TBlogSortOption; label: string }[] = [
   { value: "newest", label: "Newest First" },
   { value: "oldest", label: "Oldest First" },
-  { value: "popular", label: "Most Popular" },
 ];
 
 export {

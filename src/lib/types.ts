@@ -21,11 +21,10 @@ export interface ISongFields {
 export type TBlogCategory =
   | "Technical"
   | "Career"
-  | "Tutorials"
   | "Personal"
   | "Industry";
 
-export type TBlogSortOption = "newest" | "oldest" | "popular";
+export type TBlogSortOption = "newest" | "oldest";
 
 export interface IBlogPost {
   title: string;
