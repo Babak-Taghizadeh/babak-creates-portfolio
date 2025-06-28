@@ -4,6 +4,7 @@ import MainLayout from "@/components/layouts/main-layout";
 import { Toaster } from "sonner";
 import { Rajdhani } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
@@ -76,6 +77,7 @@ const RootLayout = ({
           <MainLayout>{children}</MainLayout>
           <Toaster richColors closeButton position="top-center" />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
