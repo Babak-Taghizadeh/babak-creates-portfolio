@@ -29,6 +29,14 @@ export const metadata: Metadata = {
     description:
       "Full-stack developer specializing in building exceptional digital experiences with modern web technologies.",
     siteName: "Babak Portfolio",
+    images: [
+      {
+        url: "/open-graph/home.png",
+        width: 1200,
+        height: 630,
+        alt: "Home Page",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -36,6 +44,7 @@ export const metadata: Metadata = {
     description:
       "Full-stack developer specializing in building exceptional digital experiences with modern web technologies.",
     creator: "@babaktaghizadeh",
+    images: ["/open-graph/home.png"],
   },
   robots: {
     index: true,
