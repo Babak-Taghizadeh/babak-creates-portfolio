@@ -6,7 +6,7 @@ import { ISongFields } from "@/lib/types";
 import { client } from "@/sanity/lib/client";
 import { SanityDocument } from "next-sanity";
 import SongCard from "@/components/sections/playlist/song-card";
-import { PaginationControls } from "@/components/ui/pagination-controls";
+import PaginationControls from "@/components/ui/pagination-controls";
 
 export const metadata: Metadata = {
   title: "Code & Chords",
@@ -68,7 +68,7 @@ const PlaylistPage = async ({ searchParams }: PlaylistPageProps) => {
     <>
       <SectionHeader
         title="Code & Chords"
-        description="The soundtracks that keep my IDE and I in flow state."
+        description="Sounds that move my hands while the code writes itself."
       />
       <div className="mt-8 space-y-8">
         <Suspense fallback={<PlaylistSectionSkeleton />}>
