@@ -8,6 +8,18 @@ import {
   Star,
   Sparkles,
   Code2,
+  Brain,
+  BookOpen,
+  Shirt,
+  Heart,
+  Music,
+  Film,
+  Dumbbell,
+  Coffee,
+  Monitor,
+  Gamepad2,
+  Tent,
+  Languages,
 } from "lucide-react";
 import { IProject } from "./types";
 import { TBlogCategory, TBlogSortOption } from "@/lib/types";
@@ -89,15 +101,15 @@ const SKILL_CATEGORIES = [
 
 const NAVIGATION_MENU_ITEMS = [
   {
-    label: "About",
+    label: "babak-talks",
     href: "/about",
   },
   {
-    label: "Blogs",
+    label: "babak-thinks",
     href: "/blogs",
   },
   {
-    label: "Playlist",
+    label: "babak-vibes",
     href: "/playlist",
   },
   {
@@ -206,6 +218,177 @@ const BLOG_SORT_OPTIONS: { value: TBlogSortOption; label: string }[] = [
   { value: "oldest", label: "Oldest First" },
 ];
 
+const EXPERIENCES = [
+  {
+    title: "Full-Stack Developer",
+    company: "Freelance – Dr. Imani Sleep Clinic",
+    location: "Remote",
+    period: "Apr 2025 – Present",
+    description:
+      "Working independently with stakeholders to scope, plan, and deliver full-stack web applications with a strong focus on UX, performance, and privacy. Responsible for architecture, UI systems, and DevOps decisions. Gained deep experience in managing end-to-end product lifecycles, setting coding standards, and maintaining long-term scalability across codebases.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Tailwind CSS",
+      "Shadcn/UI",
+      "Zod",
+    ],
+  },
+  {
+    title: "Lead Front-End Developer",
+    company: "Aral Studio",
+    location: "Remote",
+    period: "Jan 2024 – Apr 2025",
+    description:
+      "Led front-end efforts across multiple high-impact platforms in a fully remote team. Worked closely with back-end engineers, product managers, and designers to shape scalable interfaces and streamline data-heavy dashboards. Took ownership of design systems, SEO foundations, and performance strategy. Mentored junior developers, reviewed codebase standards, and contributed to agile workflows across time zones.",
+    technologies: [
+      "React",
+      "Next.js",
+      "Redux",
+      "React Query",
+      "ApexCharts",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
+  },
+  {
+    title: "React Developer",
+    company: "Platin Studio",
+    location: "On-site",
+    period: "Sep 2021 – Dec 2023",
+    description:
+      "Developed and maintained responsive web applications for a wide range of clients. Collaborated closely with UI/UX designers to translate visual concepts into production-ready interfaces. Improved testing coverage and refactored complex form flows. Gained experience in agile delivery, sprint planning, and improving legacy front-end codebases for performance and maintainability.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "React Hook Form",
+      "Yup",
+      "Vitest",
+      "MSW",
+    ],
+  },
+  {
+    title: "Front-End Developer",
+    company: "IpekDev Co.",
+    location: "On-site",
+    period: "Oct 2020 – Sep 2021",
+    description:
+      "Joined as an early-career developer and contributed to various web projects across healthcare and small business domains. Translated Figma designs into interactive UIs, collaborated in peer code reviews, and worked within structured release cycles. Developed an understanding of modern front-end workflows, reusable components, and cross-browser accessibility standards.",
+    technologies: [
+      "React",
+      "JavaScript",
+      "Tailwind CSS",
+      "Figma",
+      "Git",
+      "HTML5",
+      "CSS3",
+    ],
+  },
+];
+
+const EDUCATION = [
+  {
+    degree: "Bachelor of Science in Computer Science",
+    school: "University of Tabriz",
+    location: "Tabriz, Iran",
+    period: "2017 - 2022",
+    description:
+      "Focused on Web Development and Databases. Completed a CS internship supporting academic research.",
+  },
+  {
+    degree: "Associate of Science in Mathematics and Physics",
+    school: "Rezayi College",
+    location: "Tabriz, Iran",
+    period: "2015 - 2017",
+    description: "Advanced mathematics and theoretical physics focus.",
+  },
+];
+
+const SKILLS_DATA = [
+  {
+    Frontend: [
+      { name: "React.js", level: 95 },
+      { name: "Next.js", level: 90 },
+      { name: "TypeScript", level: 90 },
+      { name: "SASS", level: 85 },
+      { name: "Redux Toolkit", level: 80 },
+      { name: "React Query (SSR)", level: 85 },
+      { name: "Tailwind CSS", level: 90 },
+      { name: "React Hook Form", level: 85 },
+    ],
+  },
+  {
+    "Backend & Database": [
+      { name: "Node.js", level: 80 },
+      { name: "Express.js", level: 75 },
+      { name: "RESTful APIs", level: 80 },
+      { name: "Authentication (JWT, Sessions)", level: 80 },
+      { name: "CMS Architecture", level: 70 },
+      { name: "Drizzle ORM", level: 85 },
+      { name: "PostgreSQL", level: 85 },
+      { name: "MongoDB", level: 70 },
+    ],
+  },
+  {
+    "Tools & Practices": [
+      { name: "Git & GitHub", level: 90 },
+      { name: "CI/CD Pipelines", level: 80 },
+      { name: "Vitest / Jest", level: 80 },
+      { name: "React Testing Library", level: 80 },
+      { name: "Docker", level: 70 },
+      { name: "Performance Profiling", level: 75 },
+      { name: "Mobile-First Design", level: 85 },
+      { name: "Responsive Layouts", level: 90 },
+    ],
+  },
+];
+
+const LANGUAGES = [
+  { name: "English", flag: "🇬🇧", level: "Fluent" },
+  { name: "Turkish", flag: "🇹🇷", level: "Native" },
+  { name: "Persian (Farsi)", flag: "🇮🇷", level: "Fluent" },
+  { name: "German", flag: "🇩🇪", level: "Elementary" },
+];
+
+const INTERESTS = [
+  { title: "Philosophy", icon: <Brain className="text-primary h-4 w-4" /> },
+  {
+    title: "Poems & Literature",
+    icon: <BookOpen className="text-primary h-4 w-4" />,
+  },
+  { title: "Fashion", icon: <Shirt className="text-primary h-4 w-4" /> },
+  {
+    title: "Family & Friendship",
+    icon: <Heart className="text-primary h-4 w-4" />,
+  },
+  {
+    title: "Playing Instruments",
+    icon: <Music className="text-primary h-4 w-4" />,
+  },
+  { title: "Music & Movies", icon: <Film className="text-primary h-4 w-4" /> },
+  {
+    title: "Gym & Sports",
+    icon: <Dumbbell className="text-primary h-4 w-4" />,
+  },
+  { title: "Coffee", icon: <Coffee className="text-primary h-4 w-4" /> },
+  {
+    title: "Reading Tech Blogs",
+    icon: <Monitor className="text-primary h-4 w-4" />,
+  },
+  { title: "Gaming", icon: <Gamepad2 className="text-primary h-4 w-4" /> },
+  {
+    title: "Travel & Camping",
+    icon: <Tent className="text-primary h-4 w-4" />,
+  },
+  {
+    title: "Learning New Languages",
+    icon: <Languages className="text-primary h-4 w-4" />,
+  },
+];
+
 export {
   NAVIGATION_MENU_ITEMS,
   SKILL_CATEGORIES,
@@ -214,4 +397,9 @@ export {
   PROJECTS,
   BLOG_CATEGORIES,
   BLOG_SORT_OPTIONS,
+  EXPERIENCES,
+  EDUCATION,
+  SKILLS_DATA,
+  LANGUAGES,
+  INTERESTS,
 };
