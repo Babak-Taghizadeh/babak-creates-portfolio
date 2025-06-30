@@ -3,8 +3,8 @@
 import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code2, Settings } from "lucide-react";
-import { SKILLS_DATA } from "./data";
 import SectionHeader from "@/components/shared/section-header";
+import { SKILLS_DATA } from "@/lib/constants";
 
 const SkillsSection = () => {
   return (
