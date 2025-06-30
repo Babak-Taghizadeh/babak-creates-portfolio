@@ -3,6 +3,7 @@
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Skeleton } from "./skeleton";
 
 const ThemeSwitch = () => {
   const { theme, setTheme } = useTheme();
@@ -15,7 +16,9 @@ const ThemeSwitch = () => {
   };
 
   if (!mounted) {
-    return null;
+    return (
+      <Skeleton className="bg-primary/30 h-[25px] w-[56.25px] animate-pulse rounded-[6.25em]" />
+    );
   }
 
   return (
@@ -60,18 +63,14 @@ const ThemeSwitch = () => {
 
 const StyledWrapper = styled.div`
   .theme-switch {
-    --toggle-size: 15px;
-    /* the size is adjusted using font-size,
-       this is not transform scale,
-       so you can choose any size */
+    --toggle-size: 10px;
     --container-width: 5.625em;
     --container-height: 2.5em;
     --container-radius: 6.25em;
-    /* radius 0 - minecraft mode :) */
     --container-light-bg: #3d7eae;
     --container-night-bg: #1d1f2c;
     --circle-container-diameter: 3.375em;
-    --sun-moon-diameter: 2.125em;
+    --sun-moon-diameter: 1.7em;
     --sun-bg: #ecca2f;
     --moon-bg: #c4c9d1;
     --spot-color: #959db1;

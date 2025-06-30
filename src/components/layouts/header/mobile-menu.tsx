@@ -15,10 +15,10 @@ import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 
 const COLORS = [
-  "bg-primary/40 hover:bg-pink-500/30",
-  "bg-primary/30 hover:bg-purple-500/30",
-  "bg-primary/20 hover:bg-yellow-500/30",
-  "bg-primary/10 hover:bg-blue-500/30",
+  "bg-primary/40 hover:bg-primary/70",
+  "bg-primary/30 hover:bg-primary/60",
+  "bg-primary/20 hover:bg-primary/50",
+  "bg-primary/10 hover:bg-primary/40",
 ];
 
 const MobileMenu = () => {
@@ -82,7 +82,7 @@ const MobileMenu = () => {
                   <div
                     className={cn(
                       "flex skew-y-45 items-center justify-center gap-2 duration-700",
-                      isFirst && "-translate-x-20",
+                      isFirst && "-translate-x-18",
                       isLast && "translate-x-18",
                     )}
                   >

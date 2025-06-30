@@ -26,6 +26,7 @@ const BlogPostHero = ({ post }: BlogPostHeroProps) => {
           src={urlFor(post.coverImage).url()}
           alt={post.title}
           fill
+          quality={85}
           className="object-cover"
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"

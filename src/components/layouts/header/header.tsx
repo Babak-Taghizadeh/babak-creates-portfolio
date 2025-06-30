@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import {
   NavigationMenu,
@@ -29,7 +30,7 @@ const Header = memo(() => {
   };
 
   return (
-    <header className="supports-[backdrop-filter]:bg-secondary/90 sticky top-0 z-50 grid grid-cols-3 items-center px-6 py-3 backdrop-blur md:px-16">
+    <header className="supports-[backdrop-filter]:bg-secondary/90 sticky top-0 z-50 flex items-center justify-between px-6 py-3 backdrop-blur md:px-16">
       <div className="flex justify-start">
         <Link
           href="/"
@@ -38,7 +39,7 @@ const Header = memo(() => {
           <Logo fill="var(--foreground)" className="h-[70px] w-[70px]" />
         </Link>
       </div>
-      <div className="flex justify-center">
+      <div className="md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform">
         <ThemeSwitch />
       </div>
       <div className="flex justify-end">
@@ -60,6 +61,9 @@ const Header = memo(() => {
                 )}
               </NavigationMenuItem>
             ))}
+            <NavigationMenuItem>
+              <ThemeSwitch />
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
         <MobileMenu />

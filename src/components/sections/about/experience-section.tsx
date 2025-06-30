@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
-import { EXPERIENCES } from "./data";
 import SectionHeader from "@/components/shared/section-header";
+import { EXPERIENCES } from "@/lib/constants";
 
 const ExperienceSection = () => {
   return (

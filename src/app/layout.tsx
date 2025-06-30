@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://babakcreates.com"),
   title: {
     default: "Babak Portfolio | Full-Stack Developer",
     template: "%s | Babak Portfolio",
