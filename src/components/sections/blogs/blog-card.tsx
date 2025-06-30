@@ -48,6 +48,15 @@ export const BlogCard = ({ post, index = 0 }: BlogCardProps) => {
               fill
               className="object-cover transition-transform duration-300"
               sizes="(min-width: 1024px) 33vw, 100vw"
+              priority={index < 3}
+              loading={index < 3 ? "eager" : "lazy"}
+              quality={85}
+              placeholder="blur"
+              blurDataURL={urlFor(post.coverImage)
+                .width(20)
+                .quality(30)
+                .blur(50)
+                .url()}
             />
           </motion.div>
 

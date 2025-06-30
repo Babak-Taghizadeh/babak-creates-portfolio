@@ -36,11 +36,20 @@ const SongCard = ({ song, index = 0 }: SongCardProps) => {
           <div className="relative aspect-square w-full overflow-hidden rounded-lg">
             {coverImage ? (
               <Image
-                src={urlFor(coverImage).url()}
+                src={urlFor(coverImage).width(400).height(400).url()}
                 alt={`${title} album cover`}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                priority={index < 4}
+                loading={index < 4 ? "eager" : "lazy"}
+                quality={85}
+                placeholder="blur"
+                blurDataURL={urlFor(coverImage)
+                  .width(20)
+                  .quality(30)
+                  .blur(50)
+                  .url()}
               />
             ) : (
               <div className="bg-muted flex h-full items-center justify-center">
