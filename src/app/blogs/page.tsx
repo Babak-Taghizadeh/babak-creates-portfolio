@@ -6,10 +6,10 @@ import { BlogGrid } from "@/components/sections/blogs/blog-grid";
 import { getPostsQuery } from "@/lib/blog-utils";
 import BlogGridSkeleton from "@/components/sections/blogs/blog-grid-skeleton";
 import SectionHeader from "@/components/shared/section-header";
-import { BlogFilters } from "@/components/sections/blogs/blog-filters";
+import BlogFilters from "@/components/sections/blogs/blog-filters";
 import { NoPosts } from "@/components/sections/blogs/no-posts";
 import { IBlogPost, TBlogCategory, TBlogSortOption } from "@/lib/types";
-import { PaginationControls } from "@/components/ui/pagination-controls";
+import PaginationControls from "@/components/ui/pagination-controls";
 
 export const metadata: Metadata = {
   title: "Blogs | Babak Portfolio",
@@ -44,7 +44,7 @@ const BlogsPage = async ({ searchParams }: BlogsPageProps) => {
     <>
       <SectionHeader
         title="Console.Log (Thoughts)"
-        description="Explore articles about web development, career insights, and technical tutorials."
+        description="My corner of the internet for ideas, lessons, and everything I’m figuring out."
       />
       <div className="mt-8 space-y-8">
         <BlogFilters />
