@@ -12,8 +12,7 @@ const ProjectsSection = () => {
     <section className="from-background via-primary/10 to-background/40 section-wrapper max-w-7xl bg-gradient-to-b">
       <SectionHeader
         title="Featured Projects"
-        description="Due to confidentiality agreements, most of my work is not publicly
-            accessible. Case studies available on request."
+        description="Due to NDAs, detailed case studies are available upon request. Here are a few highlights I can share."
       />
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {PROJECTS.map((project, index) => (

@@ -7,7 +7,7 @@ const Skills = () => {
     <section className="section-wrapper">
       <SectionHeader
         title="Technical Skills"
-        description="Due to NDAs, detailed case studies are available upon request. Here are a few highlights I can share."
+        description="A snapshot of the technologies and skills I use daily to build smooth, modern web experiences."
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {SKILL_CATEGORIES.map((category, index) => (
