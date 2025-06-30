@@ -107,11 +107,14 @@ const ProjectCard = ({
             ))}
           </ul>
 
-          <ProjectLinks
-            githubUrl={project.githubUrl}
-            liveUrl={project.liveUrl}
-            isHovered={isHovered}
-          />
+          {project.githubUrl ||
+            (project.liveUrl && (
+              <ProjectLinks
+                githubUrl={project.githubUrl}
+                liveUrl={project.liveUrl}
+                isHovered={isHovered}
+              />
+            ))}
         </CardContent>
       </Card>
     </motion.div>
