@@ -6,9 +6,8 @@ const Skills = () => {
   return (
     <section className="section-wrapper">
       <SectionHeader
-        description="A comprehensive overview of my technical expertise and the tools I use
-          to build modern web applications."
         title="Technical Skills"
+        description="Due to NDAs, detailed case studies are available upon request. Here are a few highlights I can share."
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {SKILL_CATEGORIES.map((category, index) => (

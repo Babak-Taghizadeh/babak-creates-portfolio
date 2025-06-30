@@ -17,11 +17,11 @@ interface PaginationControlsProps {
   className?: string;
 }
 
-export function PaginationControls({
+const PaginationControls = ({
   currentPage,
   totalPages,
   className,
-}: PaginationControlsProps) {
+}: PaginationControlsProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -116,4 +116,6 @@ export function PaginationControls({
       </PaginationContent>
     </Pagination>
   );
-}
+};
+
+export default PaginationControls;

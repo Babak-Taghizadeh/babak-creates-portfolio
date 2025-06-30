@@ -33,7 +33,7 @@ const ContactForm = () => {
     <section id="contact" className="section-wrapper">
       <SectionHeader
         title="Get in Touch"
-        description="Have a question or want to work together? Feel free to reach out!"
+        description="Have an idea, opportunity, or just want to say hi? My inbox is always open."
       />
       <motion.form
         initial={{ opacity: 0, y: 20 }}

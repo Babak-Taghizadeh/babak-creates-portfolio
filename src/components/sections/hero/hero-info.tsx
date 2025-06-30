@@ -7,6 +7,7 @@ import { Button } from "../../ui/button";
 import { ArrowDown } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 const HeroInfo = () => {
   return (
@@ -16,28 +17,33 @@ const HeroInfo = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
-      <motion.span
-        className="text-primary text-xs font-semibold tracking-wider uppercase"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      >
-        Full Stack Developer
-      </motion.span>
+      <div className="flex flex-col gap-3">
+        <motion.span
+          className="text-primary text-xs font-semibold tracking-wider uppercase"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        >
+          Front-End Developer & UI Craftsman
+        </motion.span>
+        <Badge variant="secondary" className="font-bold animate-pulse text-sm">Open to work</Badge>
+      </div>
+
       <motion.h1
         className="mb-2 text-4xl leading-tight font-bold tracking-tight md:text-5xl"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        Hi I&apos;m Babak
+        Hi I&apos;m Babak{" "}
+        <span className="text-2xl tracking-normal">(bā bak)</span>
         <motion.span
           className="text-primary block"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          I craft clean & delightful UIs.
+          I design & build interfaces that feel effortless.
         </motion.span>
       </motion.h1>
       <motion.p
@@ -46,9 +52,10 @@ const HeroInfo = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        Passionate about building interactive and accessible web experiences
-        with modern technologies. I focus on writing clean code and designing
-        pixel-perfect interfaces that users love.
+        I specialize in crafting responsive, accessible, and intuitive web apps
+        with React, Next.js, and TypeScript. With a sharp eye for detail and a
+        love for clean code, I build products that are as elegant as they are
+        performant.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 10 }}

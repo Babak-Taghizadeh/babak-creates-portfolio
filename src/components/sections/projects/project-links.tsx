@@ -30,8 +30,6 @@ const ProjectLinks = ({ githubUrl, liveUrl, isHovered }: ProjectLinksProps) => {
             transition={{ duration: 0.5 }}
           >
             <Image src={GithubIcon} alt="GitHub" width={16} height={16} />
-
-            {/* <Github className="group-hover/link:text-primary mr-2 h-4 w-4" />z */}
           </motion.div>
           View Code
         </motion.a>

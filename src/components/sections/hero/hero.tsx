@@ -21,15 +21,19 @@ const Hero = () => {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
       >
         <div
-          className="from-primary/0 via-primary/40 to-primary/90 relative flex h-64 w-64 cursor-pointer items-center justify-center rounded-full bg-gradient-to-tr shadow-lg"
+          className="from-primary/0 via-primary/40 to-primary/90 relative flex h-64 w-64 items-center justify-center rounded-full bg-gradient-to-tr shadow-lg"
           onClick={() => setShowText(true)}
         >
           <Image
             src={HeroImage}
-            className="rounded-full"
-            alt="Hero"
+            alt="Portrait of Babak"
             width={210}
             height={210}
+            className="rounded-full object-cover"
+            priority
+            quality={100}
+            placeholder="blur"
+            sizes="(max-width: 768px) 80vw, 40vw"
           />
           <Code2
             className="text-background bg-foreground absolute right-[26px] bottom-[26px] rounded-full p-[2px]"

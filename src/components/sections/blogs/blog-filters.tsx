@@ -18,7 +18,7 @@ interface BlogFiltersProps {
   className?: string;
 }
 
-export const BlogFilters = ({ className }: BlogFiltersProps) => {
+const BlogFilters = ({ className }: BlogFiltersProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -76,7 +76,6 @@ export const BlogFilters = ({ className }: BlogFiltersProps) => {
           </motion.div>
         ))}
       </div>
-
       <motion.div
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
@@ -107,3 +106,5 @@ export const BlogFilters = ({ className }: BlogFiltersProps) => {
     </motion.div>
   );
 };
+
+export default BlogFilters;

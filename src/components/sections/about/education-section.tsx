@@ -3,8 +3,8 @@
 import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
-import { EDUCATION } from "./data";
 import SectionHeader from "@/components/shared/section-header";
+import { EDUCATION } from "@/lib/constants";
 
 const EducationSection = () => {
   return (
