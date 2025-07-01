@@ -24,9 +24,11 @@ const HeroInfo = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          Front-End Developer & UI Craftsman
+          Full-Stack Developer & UI Craftsman
         </motion.span>
-        <Badge variant="secondary" className="font-bold animate-pulse text-sm">Open to work</Badge>
+        <Badge variant="secondary" className="animate-pulse text-sm font-bold">
+          Open to work
+        </Badge>
       </div>
 
       <motion.h1

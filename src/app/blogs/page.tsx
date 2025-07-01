@@ -12,7 +12,7 @@ import { IBlogPost, TBlogCategory, TBlogSortOption } from "@/lib/types";
 import PaginationControls from "@/components/ui/pagination-controls";
 
 export const metadata: Metadata = {
-  title: "Blogs | Babak Portfolio",
+  title: "Blogs",
   description:
     "Explore articles about web development, career insights, and technical tutorials.",
 };

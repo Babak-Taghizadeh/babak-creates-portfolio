@@ -9,8 +9,8 @@ import { Analytics } from "@vercel/analytics/next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://babakcreates.com"),
   title: {
-    default: "Babak Portfolio | Full-Stack Developer",
-    template: "%s | Babak Portfolio",
+    default: "Babak's Portfolio | Full-Stack Developer",
+    template: "%s | Babak's Portfolio",
   },
   description:
     "Full-stack developer specializing in building exceptional digital experiences with modern web technologies.",
@@ -27,10 +27,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://babakcreates.com",
-    title: "Babak Portfolio | Full-Stack Developer",
+    title: "Babak's Portfolio | Full-Stack Developer",
     description:
       "Full-stack developer specializing in building exceptional digital experiences with modern web technologies.",
-    siteName: "Babak Portfolio",
+    siteName: "Babak's Portfolio",
     images: [
       {
         url: "/open-graph/home.png",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Babak Portfolio | Full-Stack Developer",
+    title: "Babak's Portfolio | Full-Stack Developer",
     description:
       "Full-stack developer specializing in building exceptional digital experiences with modern web technologies.",
     creator: "@babaktaghizadeh",

@@ -22,7 +22,7 @@ const Logo = memo(
         preserveAspectRatio="xMidYMid meet"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
-        aria-label="Babak Portfolio Logo"
+        aria-label="Babak's Portfolio Logo"
       >
         <g
           transform="translate(0.000000,1455.000000) scale(0.100000,-0.100000)"
