@@ -9,44 +9,52 @@ import { Analytics } from "@vercel/analytics/next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://babakcreates.com"),
   title: {
-    default: "Babak's Portfolio | Full-Stack Developer",
-    template: "%s | Babak's Portfolio",
+    default: "Babak Taghizadeh | Full-Stack Developer & UI Engineer",
+    template: "%s | Babak Taghizadeh",
   },
   description:
-    "Full-stack developer specializing in building exceptional digital experiences with modern web technologies.",
+    "Babak Taghizadeh is a full-stack developer crafting high-performance web apps with React, Next.js, and modern JavaScript. Explore projects, articles, and his creative journey.",
   keywords: [
+    "Babak Taghizadeh",
     "Full-Stack Developer",
+    "Frontend Developer",
     "Web Development",
-    "React",
+    "React Developer",
     "Next.js",
     "TypeScript",
     "Portfolio",
+    "JavaScript Engineer",
+    "UI Engineer",
+    "Frontend Architecture",
+    "Performance Optimization",
   ],
-  authors: [{ name: "Babak Taghizadeh" }],
+  authors: [{ name: "Babak Taghizadeh", url: "https://babakcreates.com" }],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://babakcreates.com",
-    title: "Babak's Portfolio | Full-Stack Developer",
+    title: "Babak Taghizadeh | Full-Stack Developer & UI Engineer",
     description:
-      "Full-stack developer specializing in building exceptional digital experiences with modern web technologies.",
-    siteName: "Babak's Portfolio",
+      "Discover the portfolio of Babak Taghizadeh, a full-stack developer focused on building exceptional digital experiences using modern web technologies.",
+    siteName: "Babak Creates",
     images: [
       {
         url: "/open-graph/home.png",
         width: 1200,
         height: 630,
-        alt: "Home Page",
+        alt: "Babak's Portfolio OpenGraph Image",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Babak's Portfolio | Full-Stack Developer",
+    title: "Babak Taghizadeh | Full-Stack Developer",
     description:
-      "Full-stack developer specializing in building exceptional digital experiences with modern web technologies.",
-    creator: "@babaktaghizadeh",
+      "Full-stack developer building beautiful, high-performance web experiences. Explore projects, blogs, and code with Babak.",
     images: ["/open-graph/home.png"],
+  },
+  alternates: {
+    canonical: "https://babakcreates.com",
   },
   robots: {
     index: true,

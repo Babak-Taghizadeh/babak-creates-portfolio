@@ -14,7 +14,49 @@ import PaginationControls from "@/components/ui/pagination-controls";
 export const metadata: Metadata = {
   title: "Blogs",
   description:
-    "Explore articles about web development, career insights, and technical tutorials.",
+    "Explore articles on web development, front-end best practices, career tips, and personal insights from Babak Taghizadeh.",
+  keywords: [
+    "web development",
+    "self-improvement",
+    "personal growth",
+    "productivity",
+    "career development",
+    "frontend engineering",
+    "learning to code",
+    "growth mindset",
+    "programming tutorials",
+    "developer lifestyle",
+    "continuous learning",
+    "developer habits",
+    "technical writing",
+    "professional growth",
+  ],
+  authors: [{ name: "Babak Taghizadeh" }],
+  openGraph: {
+    title: "Blogs",
+    description:
+      "Read articles on front-end development, coding practices, productivity tips, and personal reflections from Babak.",
+    type: "website",
+    url: "/blogs",
+    images: [
+      {
+        url: "/open-graph/blogs.png",
+        width: 1200,
+        height: 630,
+        alt: "Blogs & Articles by Babak Taghizadeh",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blogs by Babak Taghizadeh",
+    description:
+      "Tutorials, coding insights, and career advice from Babak's journey in modern web development.",
+    images: ["/open-graph/blogs.png"],
+  },
+  alternates: {
+    canonical: "/blogs",
+  },
 };
 
 const POSTS_PER_PAGE = 12;

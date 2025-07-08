@@ -9,13 +9,23 @@ import SongCard from "@/components/sections/playlist/song-card";
 import PaginationControls from "@/components/ui/pagination-controls";
 
 export const metadata: Metadata = {
-  title: "Code & Chords",
+  title: "Playlist",
   description:
-    "Explore the soundtracks that keep Babak's IDE and flow state in perfect harmony. A curated collection of music for coding and productivity.",
+    "A curated collection of soundtracks for coding, deep work, and flow. Discover the music that powers Babak's development sessions.",
+  keywords: [
+    "Coding Music",
+    "Programming Playlist",
+    "Music for Developers",
+    "Focus Music",
+    "Deep Work Soundtrack",
+    "Code & Chords",
+    "Babak Taghizadeh",
+  ],
+  authors: [{ name: "Babak Taghizadeh" }],
   openGraph: {
-    title: "Code & Chords",
+    title: "Playlist",
     description:
-      "Explore the soundtracks that keep Babak's IDE and flow state in perfect harmony. A curated collection of music for coding and productivity.",
+      "Discover music handpicked for developers. From ambient to electronic, Babak's playlist helps you stay focused and in the flow.",
     type: "website",
     url: "/playlist",
     images: [
@@ -23,16 +33,19 @@ export const metadata: Metadata = {
         url: "/open-graph/playlist.png",
         width: 1200,
         height: 630,
-        alt: "Code & Chords Playlist Preview",
+        alt: "Playlist Preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Code & Chords",
+    title: "Playlist",
     description:
-      "Explore the soundtracks that keep Babak's IDE and flow state in perfect harmony. A curated collection of music for coding and productivity.",
+      "Handpicked soundtracks for your programming sessions. Explore Babak's go-to tracks for flow and focus.",
     images: ["/open-graph/playlist.png"],
+  },
+  alternates: {
+    canonical: "/playlist",
   },
 };
 
