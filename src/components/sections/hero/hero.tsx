@@ -2,7 +2,7 @@
 
 import { Code2 } from "lucide-react";
 import Image from "next/image";
-import HeroImage from "../../../../public/images/babi.jpg";
+import HeroImage from "../../../../public/images/babak.jpg";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import HeroPopup from "./hero-popup";
@@ -29,7 +29,7 @@ const Hero = () => {
             alt="Portrait of Babak"
             width={210}
             height={210}
-            className="rounded-full object-cover"
+            className="rounded-full object-cover brightness-75 contrast-125"
             priority
             quality={100}
             placeholder="blur"

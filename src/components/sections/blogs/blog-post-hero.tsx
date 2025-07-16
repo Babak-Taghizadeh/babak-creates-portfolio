@@ -21,7 +21,7 @@ const BlogPostHero = ({ post }: BlogPostHeroProps) => {
       transition={{ duration: 0.5 }}
       className="mb-8 space-y-6"
     >
-      <div className="relative aspect-[18/9] w-full overflow-hidden rounded-xl md:aspect-[21/9]">
+      <div className="relative aspect-[14/9] w-full overflow-hidden rounded-xl md:aspect-[17/9]">
         <Image
           src={urlFor(post.coverImage).url()}
           alt={post.title}

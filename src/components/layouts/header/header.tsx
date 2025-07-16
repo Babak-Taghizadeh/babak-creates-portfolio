@@ -36,7 +36,7 @@ const Header = memo(() => {
           href="/"
           className="hover:text-primary font-semibold tracking-tight transition-colors"
         >
-          <Logo fill="var(--foreground)" className="h-[70px] w-[70px]" />
+          <Logo fill="var(--foreground)" />
         </Link>
       </div>
       <div className="md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform">
