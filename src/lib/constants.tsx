@@ -291,19 +291,20 @@ const EXPERIENCES = [
 
 const EDUCATION = [
   {
-    degree: "Bachelor of Science in Computer Science",
-    school: "University of Tabriz",
+    degree: "Associate of Science in Computer Science",
+    school: "Rezayi Technical Institute",
     location: "Tabriz, Iran",
-    period: "2017 - 2022",
+    period: "2017 - 2019",
     description:
-      "Focused on Web Development and Databases. Completed a CS internship supporting academic research.",
+      "Studied programming fundamentals, C++, data structures, and logic design. Active in tech workshops and student-led coding sessions.",
   },
   {
-    degree: "Associate of Science in Mathematics and Physics",
-    school: "Rezayi College",
+    degree: "High School Diploma in Mathematics and Physics",
+    school: "Rezayi High School",
     location: "Tabriz, Iran",
-    period: "2015 - 2017",
-    description: "Advanced mathematics and theoretical physics focus.",
+    period: "2014 - 2017",
+    description:
+      "Specialized in advanced mathematics and theoretical physics as part of Iran's Math-Physics track.",
   },
 ];
 

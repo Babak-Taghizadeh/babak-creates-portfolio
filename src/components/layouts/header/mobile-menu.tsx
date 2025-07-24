@@ -45,7 +45,7 @@ const MobileMenu = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden"
+          className="ml-auto md:hidden"
           aria-label="Open menu"
         >
           <Menu />

@@ -19,7 +19,7 @@ const EducationSection = () => {
             transition={{ duration: 0.2, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            <Card>
+            <Card className="md:min-h-52 xl:min-h-44">
               <CardContent>
                 <div className="flex items-center gap-2">
                   <GraduationCap className="text-primary h-5 w-5" />

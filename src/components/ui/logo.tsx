@@ -11,8 +11,8 @@ const Logo = memo(
   ({
     fill = "currentColor",
     className,
-    width = 60,
-    height = 60,
+    width = 50,
+    height = 50,
   }: LogoProps) => {
     return (
       <svg

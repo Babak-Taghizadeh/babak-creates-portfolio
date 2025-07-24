@@ -30,43 +30,43 @@ const Header = memo(() => {
   };
 
   return (
-    <header className="supports-[backdrop-filter]:bg-secondary/90 sticky top-0 z-50 flex items-center justify-between px-6 py-3 backdrop-blur md:px-16">
-      <div className="flex justify-start">
-        <Link
-          href="/"
-          className="hover:text-primary font-semibold tracking-tight transition-colors"
-        >
-          <Logo fill="var(--foreground)" />
-        </Link>
-      </div>
-      <div className="md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform">
-        <ThemeSwitch />
-      </div>
-      <div className="flex justify-end">
-        <NavigationMenu className="hidden md:block">
-          <NavigationMenuList className="gap-6">
-            {NAVIGATION_MENU_ITEMS.map((item) => (
-              <NavigationMenuItem key={item.label}>
-                {item.href ? (
-                  <NavItem item={item} />
-                ) : (
-                  <Button
-                    onClick={scrollToContact}
-                    className="bg-primary/20 hover:bg-primary/20 text-primary gap-2 rounded-full transition-colors"
-                    aria-label={`Contact via ${item.label}`}
-                  >
-                    <Mail className="h-4 w-4" aria-hidden="true" />
-                    <span className="hidden sm:inline">{item.label}</span>
-                  </Button>
-                )}
-              </NavigationMenuItem>
-            ))}
-            <NavigationMenuItem>
-              <ThemeSwitch />
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+    // <header className=" border border-border px-6 py-3 backdrop-blur-md shadow-lg"></header>
+    <header className="supports-[backdrop-filter]:bg-secondary/70 border-border sticky top-2 z-50 mx-auto min-w-[92%] rounded-2xl px-6 py-3 backdrop-blur md:px-16 lg:top-4 lg:border">
+      <div className="relative flex items-center justify-between">
+        <div className="flex items-center justify-start">
+          <Link
+            href="/"
+            className="hover:text-primary font-semibold tracking-tight transition-colors"
+          >
+            <Logo fill="var(--foreground)" />
+          </Link>
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform md:hidden">
+          <ThemeSwitch />
+        </div>
+        <nav className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform md:block">
+          <NavigationMenu className="hidden md:block">
+            <NavigationMenuList className="gap-6">
+              {NAVIGATION_MENU_ITEMS.map((item) => (
+                <NavigationMenuItem key={item.label}>
+                  {item.href ? <NavItem item={item} /> : null}
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </nav>
         <MobileMenu />
+        <div className="ml-auto hidden items-center gap-3 md:flex">
+          <ThemeSwitch />
+          <Button
+            onClick={scrollToContact}
+            className="bg-primary/20 hover:bg-primary/20 text-primary gap-1 rounded-full transition-colors"
+            aria-label={`Contact via Email`}
+          >
+            <Mail className="h-4 w-4" aria-hidden="true" />
+            <span className="hidden font-semibold sm:inline">Email</span>
+          </Button>
+        </div>
       </div>
     </header>
   );
