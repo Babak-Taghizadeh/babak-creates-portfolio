@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 👨‍💻 Babak Taghizadeh – Developer Portfolio
 
-## Getting Started
+Welcome to the codebase of [babakcreates.com](https://babakcreates.com) — my personal digital space. This portfolio showcases who I am as a developer, how I think, and what I’ve built. It also includes a blog to document and share what I’m learning along the way.
 
-First, run the development server:
+![Preview of babakcreates.com](./public/preview.png)
+
+---
+
+## 🔗 Live Site
+
+🌍 [https://babakcreates.com](https://babakcreates.com)
+
+---
+
+## 🧰 Tech Stack
+
+This project is built with a modern and scalable front-end stack:
+
+- **Next.js (App Router)** – for SSR, routing, and performance
+- **TypeScript** – for type safety and better DX
+- **Tailwind CSS** – for rapid, utility-first styling
+- **Shadcn/UI** – for consistent, accessible UI components
+- **Framer Motion** – for smooth page transitions and animations
+- **Sanity CMS** – for managing blog content
+
+---
+
+## 💡 Purpose
+
+I built this portfolio to:
+
+- Share my background, values, and technical focus
+- Document and publish articles on self-growth and development
+- Present my front-end architecture and UI design capabilities
+- Make a lasting first impression for job applications and networking
+
+---
+
+## ✨ Features
+
+- ✅ Clean, responsive, and accessible layout
+- ✅ Dynamic blog powered by Sanity.io
+- ✅ Animated transitions for smooth UX
+- ✅ Reusable components and design system via Shadcn
+- ✅ SEO-optimized with metadata and structured content
+- ✅ Deployed and production-ready
+
+---
+
+## 🚀 Getting Started (Development)
+
+To run this project locally:
 
 ```bash
+git clone https://github.com/Babak-Taghizadeh/babak-creates-portfolio.git
+cd portfolio
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
