@@ -8,7 +8,7 @@ Welcome to the codebase of [babakcreates.com](https://babakcreates.com) — my p
 
 ## 🔗 Live Site
 
-🌍 [https://babakcreates.com](https://babakcreates.com)
+🌍 [babakcreates.com](https://babakcreates.com) — Deployed on [Vercel](https://vercel.com)
 
 ---
 
