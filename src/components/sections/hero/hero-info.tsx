@@ -26,9 +26,20 @@ const HeroInfo = () => {
         >
           Full-Stack Developer & UI Craftsman
         </motion.span>
-        <Badge variant="secondary" className="animate-pulse text-sm font-bold">
-          Open to work
-        </Badge>
+        <div className="space-x-2">
+          <Badge
+            variant="secondary"
+            className="animate-pulse text-sm font-bold"
+          >
+            Open to work
+          </Badge>
+          <Badge
+            variant="secondary"
+            className="animate-pulse text-sm font-bold"
+          >
+            Open to Relocate
+          </Badge>
+        </div>
       </div>
 
       <motion.h1
@@ -38,7 +49,7 @@ const HeroInfo = () => {
         transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       >
         Hi I&apos;m Babak{" "}
-        <span className="text-2xl tracking-normal">(bā bak)</span>
+        <span className="text-xl tracking-normal md:text-2xl">(bā bak)</span>
         <motion.span
           className="text-primary block"
           initial={{ opacity: 0, y: 10 }}
