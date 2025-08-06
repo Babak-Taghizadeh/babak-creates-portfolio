@@ -69,7 +69,7 @@ const SkillCard = ({ title, icon, skills, index }: SkillCardProps) => {
                 ease: "easeIn",
               }}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-              className="bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-3 py-1 text-sm transition-colors"
+              className="bg-primary/10 text-primary font-medium hover:bg-primary hover:text-primary-foreground rounded-full px-3 py-1 text-sm transition-colors"
             >
               {skill}
             </motion.span>
