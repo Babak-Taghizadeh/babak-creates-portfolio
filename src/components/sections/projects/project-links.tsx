@@ -39,7 +39,7 @@ const ProjectLinks = ({ githubUrl, liveUrl, isHovered }: ProjectLinksProps) => {
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted-foreground hover:text-foreground group/link inline-flex items-center text-sm transition-colors"
+          className="text-muted-foreground hover:text-foreground group/link z-10 inline-flex items-center text-sm transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
