@@ -26,12 +26,12 @@ const Hero = () => {
         >
           <Image
             src={HeroImage}
-            alt="Portrait of Babak"
+            alt="Babak Taghizadeh, Full-Stack Developer and UI Engineer"
             width={210}
             height={210}
             className="rounded-full object-cover brightness-75 contrast-125"
             priority
-            quality={100}
+            quality={70}
             placeholder="blur"
             sizes="(max-width: 768px) 80vw, 40vw"
           />
