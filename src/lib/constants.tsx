@@ -33,31 +33,14 @@ const SKILL_CATEGORIES = [
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
+      "SASS",
       "React Query (with SSR)",
       "Redux Toolkit",
-      "SASS",
       "ShadCN UI",
       "Framer Motion",
       "ApexCharts",
       "React Hook Form",
     ],
-  },
-  {
-    title: "Backend Development",
-    icon: <Server size={20} />,
-    skills: [
-      "Node.js",
-      "Express.js",
-      "RESTful APIs",
-      "Drizzle ORM",
-      "CMS Architecture",
-      "Authentication (JWT, Sessions)",
-    ],
-  },
-  {
-    title: "Database",
-    icon: <Database size={20} />,
-    skills: ["PostgreSQL", "MongoDB", "Drizzle ORM", "Mongoose"],
   },
   {
     title: "UI/UX Design",
@@ -79,7 +62,7 @@ const SKILL_CATEGORIES = [
       "CI/CD Pipelines",
       "Vitest / Jest",
       "React Testing Library",
-      "Docker (Basics)",
+      "Docker",
       "Performance Profiling",
       "Agile & Scrum",
       "Code Reviews",
@@ -96,6 +79,23 @@ const SKILL_CATEGORIES = [
       "Attention to Detail",
       "Requirement Analysis",
     ],
+  },
+  {
+    title: "Backend Development",
+    icon: <Server size={20} />,
+    skills: [
+      "Node.js",
+      "Express.js",
+      "RESTful APIs",
+      "Drizzle ORM",
+      "CMS Architecture",
+      "Authentication (JWT, Sessions)",
+    ],
+  },
+  {
+    title: "Database",
+    icon: <Database size={20} />,
+    skills: ["PostgreSQL", "MongoDB", "Drizzle ORM", "Mongoose"],
   },
 ];
 
@@ -149,7 +149,7 @@ const PROJECTS: IProject[] = [
       "motion",
     ],
     githubUrl: "",
-    liveUrl: "",
+    liveUrl: "https://drimanisleepclinic.com/",
     category: "Fullstack",
     features: [
       "Streamlined content operations with a custom CMS, reducing publishing time by 55%",
@@ -230,10 +230,12 @@ const EXPERIENCES = [
       "Next.js",
       "TypeScript",
       "PostgreSQL",
-      "Drizzle ORM",
-      "Tailwind CSS",
-      "Shadcn/UI",
       "Zod",
+      "Tailwind CSS",
+      "Drizzle ORM",
+      "Docker",
+      "Shadcn/UI",
+      "next-auth",
     ],
   },
   {
@@ -349,9 +351,9 @@ const SKILLS_DATA = [
 
 const LANGUAGES = [
   { name: "English", flag: "🇬🇧", level: "Fluent" },
-  { name: "Turkish", flag: "🇹🇷", level: "Native" },
-  { name: "Persian (Farsi)", flag: "🇮🇷", level: "Fluent" },
-  { name: "German", flag: "🇩🇪", level: "Elementary" },
+  { name: "Turkish", flag: "🇹🇷", level: "Fluent" },
+  { name: "Persian (Farsi)", flag: "🇮🇷", level: "Native" },
+  { name: "Deutsch", flag: "🇩🇪", level: "Elementary" },
 ];
 
 const INTERESTS = [
