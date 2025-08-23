@@ -7,7 +7,6 @@ import { Button } from "../../ui/button";
 import { ArrowDown } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
 
 const HeroInfo = () => {
   return (
@@ -17,30 +16,14 @@ const HeroInfo = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div className="flex flex-col gap-3">
-        <motion.span
-          className="text-primary text-xs font-semibold tracking-wider uppercase"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        >
-          Full-Stack Developer & UI Craftsman
-        </motion.span>
-        <div className="space-x-2">
-          <Badge
-            variant="secondary"
-            className="animate-pulse text-sm font-bold"
-          >
-            Open to work
-          </Badge>
-          <Badge
-            variant="secondary"
-            className="animate-pulse text-sm font-bold"
-          >
-            Open to Relocate
-          </Badge>
-        </div>
-      </div>
+      <motion.span
+        className="text-primary text-xs font-semibold tracking-wider uppercase"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      >
+        Full-Stack Developer & UI Craftsman
+      </motion.span>
 
       <motion.h1
         className="mb-2 text-4xl leading-tight font-bold tracking-tight md:text-5xl"
